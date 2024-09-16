@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewReport));
             label1 = new Label();
             TxtTitle = new TextBox();
@@ -44,11 +45,12 @@
             label2 = new Label();
             groupBox2 = new GroupBox();
             TxtQuery = new TextBox();
-            groupBox3 = new GroupBox();
-            DataGrid = new DataGridView();
-            groupBox4 = new GroupBox();
+            GroupDados = new GroupBox();
+            ResultDataGrid = new DataGridView();
+            GroupColunas = new GroupBox();
             ColumnsGrid = new DataGridView();
             PanelBottom = new Panel();
+            LabelMensagem = new Label();
             BtnSalvar = new Button();
             BtnFechar = new Button();
             BtnTestar = new Button();
@@ -57,9 +59,9 @@
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)NumPort).BeginInit();
             groupBox2.SuspendLayout();
-            groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)DataGrid).BeginInit();
-            groupBox4.SuspendLayout();
+            GroupDados.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ResultDataGrid).BeginInit();
+            GroupColunas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ColumnsGrid).BeginInit();
             PanelBottom.SuspendLayout();
             SuspendLayout();
@@ -116,7 +118,7 @@
             NumPort.Name = "NumPort";
             NumPort.Size = new Size(84, 34);
             NumPort.TabIndex = 2;
-            NumPort.Value = new decimal(new int[] { 5432, 0, 0, 0 });
+            NumPort.Value = new decimal(new int[] { 5434, 0, 0, 0 });
             // 
             // label6
             // 
@@ -140,6 +142,7 @@
             TxtPassword.PasswordChar = '*';
             TxtPassword.Size = new Size(165, 34);
             TxtPassword.TabIndex = 4;
+            TxtPassword.Text = "acesse2006";
             // 
             // label5
             // 
@@ -162,6 +165,7 @@
             TxtUser.Name = "TxtUser";
             TxtUser.Size = new Size(165, 34);
             TxtUser.TabIndex = 3;
+            TxtUser.Text = "acesse";
             // 
             // label4
             // 
@@ -184,6 +188,7 @@
             TxtDatabase.Name = "TxtDatabase";
             TxtDatabase.Size = new Size(140, 34);
             TxtDatabase.TabIndex = 1;
+            TxtDatabase.Text = "banco002";
             // 
             // label3
             // 
@@ -206,6 +211,7 @@
             TxtServer.Name = "TxtServer";
             TxtServer.Size = new Size(165, 34);
             TxtServer.TabIndex = 0;
+            TxtServer.Text = "localhost";
             // 
             // label2
             // 
@@ -245,41 +251,49 @@
             TxtQuery.TabIndex = 0;
             TxtQuery.TextChanged += TxtQuery_TextChanged;
             // 
-            // groupBox3
+            // GroupDados
             // 
-            groupBox3.Controls.Add(DataGrid);
-            groupBox3.Font = new Font("Segoe UI", 12F);
-            groupBox3.ForeColor = Color.White;
-            groupBox3.Location = new Point(12, 323);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(1172, 224);
-            groupBox3.TabIndex = 4;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "Resultado (primeiras 5 linhas)";
+            GroupDados.Controls.Add(ResultDataGrid);
+            GroupDados.Font = new Font("Segoe UI", 12F);
+            GroupDados.ForeColor = Color.White;
+            GroupDados.Location = new Point(12, 323);
+            GroupDados.Name = "GroupDados";
+            GroupDados.Size = new Size(1172, 224);
+            GroupDados.TabIndex = 4;
+            GroupDados.TabStop = false;
+            GroupDados.Text = "Dados";
             // 
-            // DataGrid
+            // ResultDataGrid
             // 
-            DataGrid.BackgroundColor = Color.Black;
-            DataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataGrid.Dock = DockStyle.Fill;
-            DataGrid.GridColor = Color.Black;
-            DataGrid.Location = new Point(3, 30);
-            DataGrid.Name = "DataGrid";
-            DataGrid.RowHeadersWidth = 51;
-            DataGrid.Size = new Size(1166, 191);
-            DataGrid.TabIndex = 0;
+            ResultDataGrid.BackgroundColor = Color.Black;
+            ResultDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.Black;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            ResultDataGrid.DefaultCellStyle = dataGridViewCellStyle1;
+            ResultDataGrid.Dock = DockStyle.Fill;
+            ResultDataGrid.GridColor = Color.Black;
+            ResultDataGrid.Location = new Point(3, 30);
+            ResultDataGrid.Name = "ResultDataGrid";
+            ResultDataGrid.RowHeadersWidth = 51;
+            ResultDataGrid.Size = new Size(1166, 191);
+            ResultDataGrid.TabIndex = 0;
             // 
-            // groupBox4
+            // GroupColunas
             // 
-            groupBox4.Controls.Add(ColumnsGrid);
-            groupBox4.Font = new Font("Segoe UI", 12F);
-            groupBox4.ForeColor = Color.White;
-            groupBox4.Location = new Point(12, 553);
-            groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(1169, 193);
-            groupBox4.TabIndex = 5;
-            groupBox4.TabStop = false;
-            groupBox4.Text = "Colunas";
+            GroupColunas.Controls.Add(ColumnsGrid);
+            GroupColunas.Font = new Font("Segoe UI", 12F);
+            GroupColunas.ForeColor = Color.White;
+            GroupColunas.Location = new Point(12, 553);
+            GroupColunas.Name = "GroupColunas";
+            GroupColunas.Size = new Size(1169, 222);
+            GroupColunas.TabIndex = 5;
+            GroupColunas.TabStop = false;
+            GroupColunas.Text = "Colunas";
             // 
             // ColumnsGrid
             // 
@@ -290,18 +304,30 @@
             ColumnsGrid.Location = new Point(3, 30);
             ColumnsGrid.Name = "ColumnsGrid";
             ColumnsGrid.RowHeadersWidth = 51;
-            ColumnsGrid.Size = new Size(1163, 160);
+            ColumnsGrid.Size = new Size(1163, 189);
             ColumnsGrid.TabIndex = 1;
             // 
             // PanelBottom
             // 
+            PanelBottom.Controls.Add(LabelMensagem);
             PanelBottom.Controls.Add(BtnSalvar);
             PanelBottom.Controls.Add(BtnFechar);
             PanelBottom.Dock = DockStyle.Bottom;
-            PanelBottom.Location = new Point(0, 744);
+            PanelBottom.Location = new Point(0, 781);
             PanelBottom.Name = "PanelBottom";
-            PanelBottom.Size = new Size(1188, 65);
+            PanelBottom.Size = new Size(1189, 105);
             PanelBottom.TabIndex = 6;
+            // 
+            // LabelMensagem
+            // 
+            LabelMensagem.Dock = DockStyle.Left;
+            LabelMensagem.Font = new Font("Segoe UI", 12F);
+            LabelMensagem.ForeColor = Color.Yellow;
+            LabelMensagem.Location = new Point(0, 0);
+            LabelMensagem.Name = "LabelMensagem";
+            LabelMensagem.Size = new Size(906, 105);
+            LabelMensagem.TabIndex = 3;
+            LabelMensagem.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // BtnSalvar
             // 
@@ -311,10 +337,10 @@
             BtnSalvar.FlatStyle = FlatStyle.Popup;
             BtnSalvar.ForeColor = Color.White;
             BtnSalvar.Image = (Image)resources.GetObject("BtnSalvar.Image");
-            BtnSalvar.Location = new Point(914, 0);
+            BtnSalvar.Location = new Point(915, 0);
             BtnSalvar.Name = "BtnSalvar";
             BtnSalvar.Padding = new Padding(10);
-            BtnSalvar.Size = new Size(137, 65);
+            BtnSalvar.Size = new Size(137, 105);
             BtnSalvar.TabIndex = 0;
             BtnSalvar.Text = "    Salvar";
             BtnSalvar.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -329,10 +355,10 @@
             BtnFechar.FlatStyle = FlatStyle.Popup;
             BtnFechar.ForeColor = Color.White;
             BtnFechar.Image = (Image)resources.GetObject("BtnFechar.Image");
-            BtnFechar.Location = new Point(1051, 0);
+            BtnFechar.Location = new Point(1052, 0);
             BtnFechar.Name = "BtnFechar";
             BtnFechar.Padding = new Padding(10);
-            BtnFechar.Size = new Size(137, 65);
+            BtnFechar.Size = new Size(137, 105);
             BtnFechar.TabIndex = 2;
             BtnFechar.Text = "    Fechar";
             BtnFechar.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -397,14 +423,14 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(1188, 809);
+            ClientSize = new Size(1189, 886);
             ControlBox = false;
             Controls.Add(BtnCarregar);
             Controls.Add(BtnLimpar);
             Controls.Add(BtnTestar);
             Controls.Add(PanelBottom);
-            Controls.Add(groupBox4);
-            Controls.Add(groupBox3);
+            Controls.Add(GroupColunas);
+            Controls.Add(GroupDados);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(TxtTitle);
@@ -419,9 +445,9 @@
             ((System.ComponentModel.ISupportInitialize)NumPort).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
-            groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)DataGrid).EndInit();
-            groupBox4.ResumeLayout(false);
+            GroupDados.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)ResultDataGrid).EndInit();
+            GroupColunas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)ColumnsGrid).EndInit();
             PanelBottom.ResumeLayout(false);
             ResumeLayout(false);
@@ -443,9 +469,9 @@
         private Label label3;
         private GroupBox groupBox2;
         private TextBox TxtQuery;
-        private GroupBox groupBox3;
-        private DataGridView DataGrid;
-        private GroupBox groupBox4;
+        private GroupBox GroupDados;
+        private DataGridView ResultDataGrid;
+        private GroupBox GroupColunas;
         private DataGridView ColumnsGrid;
         private Panel PanelBottom;
         private Button BtnSalvar;
@@ -455,5 +481,6 @@
         private Button BtnCarregar;
         private Label label6;
         private NumericUpDown NumPort;
+        private Label LabelMensagem;
     }
 }

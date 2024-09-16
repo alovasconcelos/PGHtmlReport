@@ -144,7 +144,7 @@
   <data name="BtnTestar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAAjpJREFUWEe9l603RFEUxSdMEAVBEARBFARREARBEATBHyBMmCAImiCIgiAIoiAI
+        vAAADrwBlbxySQAAAjpJREFUWEe9l603RFEUxSdMEAVBEARBFARREARBEATBHyBMmCAImiCIgiAIoiAI
         wkRBEARBEARBEIQJ1prx2/fu5+uZeW/ex+y19jr33HvO2ccy586dhtDv9yd7vd4xfIKXcC0cjAsIntPE
         L7DXgYsOqRcIvVl3hXX7h69GzuGcQ+uBtfp2k3/JIexqH/sBj1hOOaRaSESw+wW2ZhE+VQM6x77BPZYT
         DqkGKi7YTYGjBYSvYlRo5AWzDZsOKYdQFdgdCEKWEb+L0aGRe1h+Ylwvs4EEiG7CR6epkXIT4zq5GxAI
@@ -160,7 +160,7 @@
   <data name="BtnLimpar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAAThJREFUWEftlSEOwkAQRSsQCAQCgURyDARH4BgIjlDfQ3AAJAdAIDkAAlnBIUha
+        vAAADrwBlbxySQAAAThJREFUWEftlSEOwkAQRSsQCAQCgURyDARH4BgIjlDfQ3AAJAdAIDkAAlnBIUha
         /nRnAqULZXemTUh4yaTtpn/eb0JCYklZlkvMiB/7pSiKFeaGOfZeQuQQV/Ra4lUu9FLinVzotESbXOik
         xLdywbREqFwwKRErF1QltHIhqoSV/ImUV7djLceuHS4DXv+Zv9xF9fyOHC8OEcirpAFBcgGBOYLXaoOC
         0C9fYKb8qC4RKh8jkGPOuFeXCJITCGQuWoVVJYLlBEInF3fEloiSEwg2fvWhJaLlBMJ7t6bOtyVUcgIL
@@ -171,7 +171,7 @@
   <data name="BtnCarregar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAAS9JREFUWEftlCEOwkAQRSsQCEQlAoFAIJAcAMEBEAgEAoFAIrgBAsEhEEgEAskh
+        vAAADrwBlbxySQAAAS9JREFUWEftlCEOwkAQRSsQCEQlAoFAIJAcAMEBEAgEAoFAIrgBAsEhEEgEAskh
         EEgEkgMgSVretEObliYsJSUk7Et+Zjq783cozToWy9/g+35J0ySe550NVdOWXNC/YIimPsZQNKWuLblg
         gBW64JMcIvR+Dc0DQidLrLXVLoJaA/VZHxFn6EAuPskhpPgJYoxapCXiEG3RNVzNhvV4iLCUD4w2hDLq
         kp+CoiHRECRZH5yJdhjIr+6jW+D6JvQdgreQFzx6Hxx+JFTV6n1oLmNykQHQBo2ppT9Q+WumaI3klQeQ

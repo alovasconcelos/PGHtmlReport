@@ -22,7 +22,7 @@ namespace PGHrmlReport
             this.database = database;
             this.port = port;
             this.username = user;
-            this.password = CriptoHelper.Decripto(password, "ALOV");
+            this.password = password;
         }
 
         public NpgsqlConnection Connection()
@@ -40,13 +40,13 @@ namespace PGHrmlReport
             return $"Server={server};Username={username};Database={database};Port={port.ToString()};Password={password};SSLMode=Prefer";
         }
 
-        public bool Test()
+        public bool Test(NpgsqlConnection conn)
         {
             try
             {
-                _conn.Open();  // Tenta abrir a conexão
+                conn.Open();  // Tenta abrir a conexão
 
-                if (_conn.State == System.Data.ConnectionState.Open)
+                if (conn.State == System.Data.ConnectionState.Open)
                 {
                     return true;
                 }
@@ -61,9 +61,9 @@ namespace PGHrmlReport
             }
             finally
             {
-                if (_conn.State == System.Data.ConnectionState.Open)
+                if (conn.State == System.Data.ConnectionState.Open)
                 {
-                    _conn.Close();  // Fechar a conexão, se estiver aberta
+                    conn.Close();  // Fechar a conexão, se estiver aberta
                 }
             }
         }

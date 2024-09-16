@@ -96,7 +96,8 @@ namespace PGHrmlReport
             }
 
             var pg = new PGHelper(Server(), Database(), Port(), User(), Password());
-            if (!pg.Test())
+            
+            if (!pg.Test(pg.Connection()))
             {
                 MessageBox.Show("Não consegui conectar ao banco de dados");
                 return false;
@@ -134,12 +135,28 @@ namespace PGHrmlReport
             Close();
         }
 
+        private void Aguarde(bool aguardando)
+        {
+            Cursor = Cursors.WaitCursor;
+            GroupDados.Visible = !aguardando;
+            GroupColunas.Visible = !aguardando;
+            Cursor = Cursors.Default;
+            Refresh();
+        }
+
+        private void Mensagem(string mensagem)
+        {
+            LabelMensagem.Text = mensagem;
+        }
+
         private void RunQuery()
         {
             if (!ValidateConnection())
             {
                 return;
             }
+            Mensagem("Aguarde um momento, por favor...");
+            Aguarde(true);
             var pg = new PGHelper(Server(), Database(), Port(), User(), Password());
             var conn = pg.Connection();
             if (conn.State == System.Data.ConnectionState.Closed)
@@ -147,12 +164,27 @@ namespace PGHrmlReport
                 conn.Open();
             }
             using var cmd = new NpgsqlCommand(Query(), conn);
-            using NpgsqlDataReader r = cmd.ExecuteReader();
-            while (r.Read())
+            try
             {
+                using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                {
+                    DataTable dataTable = new DataTable();
+                    dataTable.Load(reader);
+                    // Vinculando o DataTable ao DataGrid
+                    ResultDataGrid.DataSource = dataTable.DefaultView;
+                }
+                var qtLinhas = ResultDataGrid.RowCount - 1;           
+                Mensagem(qtLinhas > 0 ? $"{qtLinhas} linha(s) retornada(s)": "Nenhuma linha retornada");
             }
-            r.Close();
-            conn.Close();
+            catch (Exception ex)
+            {
+                Mensagem(ex.Message);
+            }
+            finally
+            {
+                Aguarde(false);
+                conn.Close();
+            }
         }
 
         private void BtnTestar_Click(object sender, EventArgs e)
