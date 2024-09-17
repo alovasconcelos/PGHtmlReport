@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewReport));
             label1 = new Label();
             TxtTitle = new TextBox();
@@ -238,10 +239,12 @@
             // 
             // TxtQuery
             // 
+            TxtQuery.AcceptsReturn = true;
+            TxtQuery.AcceptsTab = true;
             TxtQuery.BackColor = Color.Black;
             TxtQuery.BorderStyle = BorderStyle.None;
             TxtQuery.Dock = DockStyle.Fill;
-            TxtQuery.Font = new Font("Segoe UI", 12F);
+            TxtQuery.Font = new Font("Courier New", 12F);
             TxtQuery.ForeColor = Color.White;
             TxtQuery.Location = new Point(3, 30);
             TxtQuery.MaxLength = 80;
@@ -265,16 +268,18 @@
             // 
             // ResultDataGrid
             // 
+            ResultDataGrid.AllowUserToAddRows = false;
+            ResultDataGrid.AllowUserToDeleteRows = false;
             ResultDataGrid.BackgroundColor = Color.Black;
             ResultDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.Black;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            ResultDataGrid.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.Black;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            ResultDataGrid.DefaultCellStyle = dataGridViewCellStyle3;
             ResultDataGrid.Dock = DockStyle.Fill;
             ResultDataGrid.GridColor = Color.Black;
             ResultDataGrid.Location = new Point(3, 30);
@@ -290,7 +295,7 @@
             GroupColunas.ForeColor = Color.White;
             GroupColunas.Location = new Point(12, 553);
             GroupColunas.Name = "GroupColunas";
-            GroupColunas.Size = new Size(1169, 222);
+            GroupColunas.Size = new Size(1169, 196);
             GroupColunas.TabIndex = 5;
             GroupColunas.TabStop = false;
             GroupColunas.Text = "Colunas";
@@ -299,12 +304,20 @@
             // 
             ColumnsGrid.BackgroundColor = Color.Black;
             ColumnsGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.Black;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            ColumnsGrid.DefaultCellStyle = dataGridViewCellStyle4;
             ColumnsGrid.Dock = DockStyle.Fill;
             ColumnsGrid.GridColor = Color.Black;
             ColumnsGrid.Location = new Point(3, 30);
             ColumnsGrid.Name = "ColumnsGrid";
             ColumnsGrid.RowHeadersWidth = 51;
-            ColumnsGrid.Size = new Size(1163, 189);
+            ColumnsGrid.Size = new Size(1163, 163);
             ColumnsGrid.TabIndex = 1;
             // 
             // PanelBottom
@@ -313,9 +326,9 @@
             PanelBottom.Controls.Add(BtnSalvar);
             PanelBottom.Controls.Add(BtnFechar);
             PanelBottom.Dock = DockStyle.Bottom;
-            PanelBottom.Location = new Point(0, 781);
+            PanelBottom.Location = new Point(0, 753);
             PanelBottom.Name = "PanelBottom";
-            PanelBottom.Size = new Size(1189, 105);
+            PanelBottom.Size = new Size(1180, 105);
             PanelBottom.TabIndex = 6;
             // 
             // LabelMensagem
@@ -337,7 +350,7 @@
             BtnSalvar.FlatStyle = FlatStyle.Popup;
             BtnSalvar.ForeColor = Color.White;
             BtnSalvar.Image = (Image)resources.GetObject("BtnSalvar.Image");
-            BtnSalvar.Location = new Point(915, 0);
+            BtnSalvar.Location = new Point(906, 0);
             BtnSalvar.Name = "BtnSalvar";
             BtnSalvar.Padding = new Padding(10);
             BtnSalvar.Size = new Size(137, 105);
@@ -355,7 +368,7 @@
             BtnFechar.FlatStyle = FlatStyle.Popup;
             BtnFechar.ForeColor = Color.White;
             BtnFechar.Image = (Image)resources.GetObject("BtnFechar.Image");
-            BtnFechar.Location = new Point(1052, 0);
+            BtnFechar.Location = new Point(1043, 0);
             BtnFechar.Name = "BtnFechar";
             BtnFechar.Padding = new Padding(10);
             BtnFechar.Size = new Size(137, 105);
@@ -400,6 +413,7 @@
             BtnLimpar.TextAlign = ContentAlignment.BottomCenter;
             BtnLimpar.TextImageRelation = TextImageRelation.ImageAboveText;
             BtnLimpar.UseVisualStyleBackColor = false;
+            BtnLimpar.Click += BtnLimpar_Click;
             // 
             // BtnCarregar
             // 
@@ -417,13 +431,14 @@
             BtnCarregar.TextAlign = ContentAlignment.BottomCenter;
             BtnCarregar.TextImageRelation = TextImageRelation.ImageAboveText;
             BtnCarregar.UseVisualStyleBackColor = false;
+            BtnCarregar.Click += BtnCarregar_Click;
             // 
             // NewReport
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(1189, 886);
+            ClientSize = new Size(1180, 858);
             ControlBox = false;
             Controls.Add(BtnCarregar);
             Controls.Add(BtnLimpar);
@@ -436,10 +451,12 @@
             Controls.Add(TxtTitle);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.Fixed3D;
+            KeyPreview = true;
             Name = "NewReport";
             ShowIcon = false;
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterParent;
+            KeyDown += NewReport_KeyDown;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)NumPort).EndInit();
@@ -472,7 +489,6 @@
         private GroupBox GroupDados;
         private DataGridView ResultDataGrid;
         private GroupBox GroupColunas;
-        private DataGridView ColumnsGrid;
         private Panel PanelBottom;
         private Button BtnSalvar;
         private Button BtnFechar;
@@ -482,5 +498,6 @@
         private Label label6;
         private NumericUpDown NumPort;
         private Label LabelMensagem;
+        private DataGridView ColumnsGrid;
     }
 }

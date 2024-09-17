@@ -46,6 +46,7 @@
             Arquivos.Cursor = Cursors.Hand;
             Arquivos.Dock = DockStyle.Fill;
             Arquivos.Location = new Point(0, 0);
+            Arquivos.Margin = new Padding(20);
             Arquivos.Name = "Arquivos";
             Arquivos.Size = new Size(804, 441);
             Arquivos.TabIndex = 0;

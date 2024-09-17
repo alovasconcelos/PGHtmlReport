@@ -34,7 +34,7 @@ namespace PGHrmlReport
             // Clear existing items and icons
             listView.Items.Clear();
             listView.LargeImageList = new ImageList();
-            listView.LargeImageList.ImageSize = new Size(64, 64); // Set the icon size
+            listView.LargeImageList.ImageSize = new Size(32, 32); // Set the icon size
 
             try
             {
@@ -47,7 +47,7 @@ namespace PGHrmlReport
                     string fileName = Path.GetFileName(file);
 
                     // Create a dummy icon for illustration (you can load specific icons here)
-                    Icon fileIcon = Icon.ExtractAssociatedIcon(file);
+                    Icon fileIcon = Icon.ExtractAssociatedIcon(file);                    
 
 
                     // Add the icon to the ImageList

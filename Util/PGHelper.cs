@@ -1,10 +1,10 @@
 ﻿using Npgsql;
 
-namespace PGHrmlReport
+namespace PGHrmlReport.Helpers
 {
     public class PGHelper
     {
-        
+
         private NpgsqlConnection _conn;
         private string server;
         private string username;
@@ -21,7 +21,7 @@ namespace PGHrmlReport
             this.server = server;
             this.database = database;
             this.port = port;
-            this.username = user;
+            username = user;
             this.password = password;
         }
 
