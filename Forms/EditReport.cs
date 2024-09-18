@@ -191,7 +191,6 @@ namespace PGHrmlReport
         private void Aguarde(bool aguardando)
         {
             Cursor = Cursors.WaitCursor;
-            GroupDados.Visible = !aguardando;
             GroupColunas.Visible = !aguardando;
             Cursor = Cursors.Default;
             Refresh();
@@ -239,6 +238,7 @@ namespace PGHrmlReport
             ColumnsGrid.Columns.Add(totalizeColumn);
 
             // Itera sobre as colunas do primeiro DataGridView (myDataGridView)
+            /*
             foreach (DataGridViewColumn column in ResultDataGrid.Columns)
             {
                 // Obtem o tipo de dado da coluna
@@ -260,7 +260,7 @@ namespace PGHrmlReport
                                     false);
 
             }
-
+            */
             // Desabilita o combo de Totalizar para campos não numéricos
             foreach (DataGridViewRow row in ColumnsGrid.Rows)
             {
@@ -309,19 +309,18 @@ namespace PGHrmlReport
             using var cmd = new NpgsqlCommand(Query(), conn);
             try
             {
+                DataTable dataTable = new DataTable();
                 using (NpgsqlDataReader reader = cmd.ExecuteReader())
                 {
-                    DataTable dataTable = new DataTable();
                     dataTable.Load(reader);
-                    // Vinculando o DataTable ao DataGrid
-                    ResultDataGrid.DataSource = dataTable.DefaultView;
                 }
-                var qtLinhas = ResultDataGrid.RowCount - 1;
+                var qtLinhas = dataTable.Rows.Count;
                 Mensagem(qtLinhas > 0 ? $"{qtLinhas} linha(s) retornada(s)" : "Nenhuma linha retornada");
                 if (!TxtQuery.ReadOnly && (report.Query == null || report.Query != Query()))
                 {
                     PopulateColumnsGrid();
                     report.Query = Query();
+                    report.Data = dataTable;
                 }
                 PreviewAsync();
 

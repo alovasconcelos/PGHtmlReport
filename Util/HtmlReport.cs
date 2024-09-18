@@ -1,6 +1,7 @@
 ﻿using PGHrmlReport.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,6 +59,43 @@ namespace PGHrmlReport.Util
 
             return ret;
         }
+        private string TableHeader()
+        {
+            string columns = string.Empty;
+            foreach (var c in report.Columns)
+            {
+                columns += $"<th>{c.Title}</th>";
+            }
+            string ret = $"<table><thead><tr>{columns}</tr></thead>";
+
+            return ret;
+        }
+
+        private string TableFooter()
+        {
+            string ret = string.Empty;
+            ret += "<tfoot>";
+
+            ret += "</tfoot></table>";
+            return ret;
+        }
+
+        private string TableData()
+        {
+            string lines = string.Empty;
+            foreach (DataRow row in report.Data.Rows)
+            {
+                lines += "<tr>";
+                foreach(var col in report.Columns)
+                {
+                    lines += "<td>";
+                    lines += row[col.Value];
+                    lines += "</td>";
+                }
+                lines += "</tr>";
+            }
+            return lines;
+        }
 
         private string HtmlHead()
         {
@@ -76,11 +114,12 @@ namespace PGHrmlReport.Util
         private string ReportBody()
         {
             string ret = string.Empty;
-
+            ret += TableHeader();
+            ret += TableData();
+            ret += TableFooter();
             return ret;
         }
 
-        // TODO - associar arquivos do tipo css para definições de estilos das seções
         private string ReportHeader(string title)
         {
             string ret = $@"<h3>{title}</h3>";
@@ -88,13 +127,9 @@ namespace PGHrmlReport.Util
             return ret;
         }
 
-
-
         public string Render()
         {
-            string ret = $"<html>{HtmlHead()}";
-            ret += HtmlBody();
-            ret += "</html>";
+            string ret = $"<html>{HtmlHead()}{HtmlBody()}</html>";
             return ret;
         }
     }

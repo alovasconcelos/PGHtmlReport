@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditReport));
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             label1 = new Label();
             TxtTitle = new TextBox();
             groupBox1 = new GroupBox();
@@ -46,8 +45,6 @@
             label2 = new Label();
             groupBox2 = new GroupBox();
             TxtQuery = new TextBox();
-            GroupDados = new GroupBox();
-            ResultDataGrid = new DataGridView();
             PanelBottom = new Panel();
             LabelMensagem = new Label();
             BtnSalvar = new Button();
@@ -56,24 +53,21 @@
             BtnLimpar = new Button();
             BtnCarregar = new Button();
             PanelTop = new Panel();
-            PanelResult = new Panel();
             PanelPreview = new Panel();
             groupBox3 = new GroupBox();
             WebView = new Microsoft.Web.WebView2.WinForms.WebView2();
+            PanelResult = new Panel();
             GroupColunas = new GroupBox();
             ColumnsGrid = new DataGridView();
-            label7 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)NumPort).BeginInit();
             groupBox2.SuspendLayout();
-            GroupDados.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)ResultDataGrid).BeginInit();
             PanelBottom.SuspendLayout();
             PanelTop.SuspendLayout();
-            PanelResult.SuspendLayout();
             PanelPreview.SuspendLayout();
             groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)WebView).BeginInit();
+            PanelResult.SuspendLayout();
             GroupColunas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ColumnsGrid).BeginInit();
             SuspendLayout();
@@ -265,50 +259,15 @@
             TxtQuery.TabIndex = 0;
             TxtQuery.TextChanged += TxtQuery_TextChanged;
             // 
-            // GroupDados
-            // 
-            GroupDados.Controls.Add(ResultDataGrid);
-            GroupDados.Dock = DockStyle.Fill;
-            GroupDados.Font = new Font("Segoe UI", 12F);
-            GroupDados.ForeColor = Color.White;
-            GroupDados.Location = new Point(0, 0);
-            GroupDados.Name = "GroupDados";
-            GroupDados.Size = new Size(744, 280);
-            GroupDados.TabIndex = 4;
-            GroupDados.TabStop = false;
-            GroupDados.Text = "Dados";
-            // 
-            // ResultDataGrid
-            // 
-            ResultDataGrid.AllowUserToAddRows = false;
-            ResultDataGrid.AllowUserToDeleteRows = false;
-            ResultDataGrid.BackgroundColor = Color.Black;
-            ResultDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.Black;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            ResultDataGrid.DefaultCellStyle = dataGridViewCellStyle3;
-            ResultDataGrid.Dock = DockStyle.Fill;
-            ResultDataGrid.GridColor = Color.Black;
-            ResultDataGrid.Location = new Point(3, 30);
-            ResultDataGrid.Name = "ResultDataGrid";
-            ResultDataGrid.RowHeadersWidth = 51;
-            ResultDataGrid.Size = new Size(738, 247);
-            ResultDataGrid.TabIndex = 0;
-            // 
             // PanelBottom
             // 
             PanelBottom.Controls.Add(LabelMensagem);
             PanelBottom.Controls.Add(BtnSalvar);
             PanelBottom.Controls.Add(BtnFechar);
             PanelBottom.Dock = DockStyle.Bottom;
-            PanelBottom.Location = new Point(0, 725);
+            PanelBottom.Location = new Point(0, 721);
             PanelBottom.Name = "PanelBottom";
-            PanelBottom.Size = new Size(1335, 105);
+            PanelBottom.Size = new Size(1331, 105);
             PanelBottom.TabIndex = 6;
             // 
             // LabelMensagem
@@ -330,7 +289,7 @@
             BtnSalvar.FlatStyle = FlatStyle.Popup;
             BtnSalvar.ForeColor = Color.White;
             BtnSalvar.Image = (Image)resources.GetObject("BtnSalvar.Image");
-            BtnSalvar.Location = new Point(1028, 20);
+            BtnSalvar.Location = new Point(1024, 20);
             BtnSalvar.Name = "BtnSalvar";
             BtnSalvar.Padding = new Padding(10);
             BtnSalvar.Size = new Size(137, 65);
@@ -348,7 +307,7 @@
             BtnFechar.FlatStyle = FlatStyle.Popup;
             BtnFechar.ForeColor = Color.White;
             BtnFechar.Image = (Image)resources.GetObject("BtnFechar.Image");
-            BtnFechar.Location = new Point(1171, 20);
+            BtnFechar.Location = new Point(1167, 20);
             BtnFechar.Name = "BtnFechar";
             BtnFechar.Padding = new Padding(10);
             BtnFechar.Size = new Size(137, 65);
@@ -427,23 +386,13 @@
             PanelTop.Size = new Size(756, 422);
             PanelTop.TabIndex = 10;
             // 
-            // PanelResult
-            // 
-            PanelResult.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            PanelResult.Controls.Add(GroupDados);
-            PanelResult.Location = new Point(12, 440);
-            PanelResult.Name = "PanelResult";
-            PanelResult.Size = new Size(744, 280);
-            PanelResult.TabIndex = 11;
-            // 
             // PanelPreview
             // 
             PanelPreview.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             PanelPreview.Controls.Add(groupBox3);
-            PanelPreview.Controls.Add(GroupColunas);
-            PanelPreview.Location = new Point(774, 57);
+            PanelPreview.Location = new Point(774, 26);
             PanelPreview.Name = "PanelPreview";
-            PanelPreview.Size = new Size(565, 663);
+            PanelPreview.Size = new Size(565, 694);
             PanelPreview.TabIndex = 12;
             // 
             // groupBox3
@@ -452,9 +401,9 @@
             groupBox3.Dock = DockStyle.Fill;
             groupBox3.Font = new Font("Segoe UI", 12F);
             groupBox3.ForeColor = Color.White;
-            groupBox3.Location = new Point(0, 192);
+            groupBox3.Location = new Point(0, 0);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(565, 471);
+            groupBox3.Size = new Size(565, 694);
             groupBox3.TabIndex = 7;
             groupBox3.TabStop = false;
             groupBox3.Text = "Preview";
@@ -470,20 +419,29 @@
             WebView.Location = new Point(3, 30);
             WebView.Name = "WebView";
             WebView.Padding = new Padding(5);
-            WebView.Size = new Size(559, 438);
+            WebView.Size = new Size(559, 661);
             WebView.TabIndex = 0;
             WebView.ZoomFactor = 1D;
+            // 
+            // PanelResult
+            // 
+            PanelResult.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            PanelResult.Controls.Add(GroupColunas);
+            PanelResult.Location = new Point(12, 440);
+            PanelResult.Name = "PanelResult";
+            PanelResult.Size = new Size(744, 280);
+            PanelResult.TabIndex = 11;
             // 
             // GroupColunas
             // 
             GroupColunas.Controls.Add(ColumnsGrid);
-            GroupColunas.Dock = DockStyle.Top;
+            GroupColunas.Dock = DockStyle.Fill;
             GroupColunas.Font = new Font("Segoe UI", 12F);
             GroupColunas.ForeColor = Color.White;
             GroupColunas.Location = new Point(0, 0);
             GroupColunas.Name = "GroupColunas";
-            GroupColunas.Size = new Size(565, 192);
-            GroupColunas.TabIndex = 6;
+            GroupColunas.Size = new Size(744, 280);
+            GroupColunas.TabIndex = 7;
             GroupColunas.TabStop = false;
             GroupColunas.Text = "Colunas";
             // 
@@ -491,41 +449,29 @@
             // 
             ColumnsGrid.BackgroundColor = Color.Black;
             ColumnsGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.Black;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            ColumnsGrid.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.Black;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            ColumnsGrid.DefaultCellStyle = dataGridViewCellStyle1;
             ColumnsGrid.Dock = DockStyle.Fill;
             ColumnsGrid.GridColor = Color.Black;
             ColumnsGrid.Location = new Point(3, 30);
             ColumnsGrid.Name = "ColumnsGrid";
             ColumnsGrid.RowHeadersWidth = 51;
-            ColumnsGrid.Size = new Size(559, 159);
+            ColumnsGrid.Size = new Size(738, 247);
             ColumnsGrid.TabIndex = 1;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 12F);
-            label7.ForeColor = Color.White;
-            label7.Location = new Point(777, 26);
-            label7.Name = "label7";
-            label7.Size = new Size(91, 28);
-            label7.TabIndex = 13;
-            label7.Text = "Relatório";
             // 
             // EditReport
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(1335, 830);
+            ClientSize = new Size(1331, 826);
             ControlBox = false;
-            Controls.Add(label7);
             Controls.Add(PanelPreview);
             Controls.Add(PanelResult);
             Controls.Add(PanelTop);
@@ -543,19 +489,16 @@
             ((System.ComponentModel.ISupportInitialize)NumPort).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
-            GroupDados.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)ResultDataGrid).EndInit();
             PanelBottom.ResumeLayout(false);
             PanelTop.ResumeLayout(false);
             PanelTop.PerformLayout();
-            PanelResult.ResumeLayout(false);
             PanelPreview.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)WebView).EndInit();
+            PanelResult.ResumeLayout(false);
             GroupColunas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)ColumnsGrid).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -573,8 +516,6 @@
         private Label label3;
         private GroupBox groupBox2;
         private TextBox TxtQuery;
-        private GroupBox GroupDados;
-        private DataGridView ResultDataGrid;
         private Panel PanelBottom;
         private Button BtnSalvar;
         private Button BtnFechar;
@@ -585,12 +526,11 @@
         private NumericUpDown NumPort;
         private Label LabelMensagem;
         private Panel PanelTop;
-        private Panel PanelResult;
         private Panel PanelPreview;
         private Microsoft.Web.WebView2.WinForms.WebView2 WebView;
+        private GroupBox groupBox3;
+        private Panel PanelResult;
         private GroupBox GroupColunas;
         private DataGridView ColumnsGrid;
-        private GroupBox groupBox3;
-        private Label label7;
     }
 }

@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Npgsql;
+using PGHrmlReport.Util;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,12 +31,10 @@ namespace PGHrmlReport.Models
             set { Query = value.Value; }
         }
         public List<Column> Columns { get; set; } = new List<Column>();
+        public DataTable Data {  get; set; }
 
         public Report() { }
 
-        public void AddColumn(Column column)
-        {
-            Columns.Add(column);
-        }
+
     }
 }
