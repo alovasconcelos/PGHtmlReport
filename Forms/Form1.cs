@@ -1,3 +1,5 @@
+using PGHrmlReport.Util;
+
 namespace PGHrmlReport
 {
     public partial class Form1 : Form
@@ -26,7 +28,8 @@ namespace PGHrmlReport
 
         private void OnFileDoubleClick(string? filePath)
         {
-            MessageBox.Show($"You double-clicked on: {filePath}");
+            new EditReport(filePath).ShowDialog();
+            LoadFiles();
         }
 
         public void LoadHrFilesIntoListView(string folderPath, ListView listView)
@@ -71,11 +74,16 @@ namespace PGHrmlReport
             }
         }
 
-        
+        private void LoadFiles()
+        {
+            LoadHrFilesIntoListView(@"C:\PGHtmlReport\xml", Arquivos);
+        }
+
+
 
         private void Form1_Shown(object sender, EventArgs e)
         {
-            LoadHrFilesIntoListView(@"C:\PGHtmlReport\xml", Arquivos);
+            LoadFiles();
         }
 
         private void BtnSair_Click(object sender, EventArgs e)
@@ -85,11 +93,8 @@ namespace PGHrmlReport
 
         private void BtnNovo_Click(object sender, EventArgs e)
         {
-            var newReport = new NewReport();
-            if (newReport.ShowDialog() == DialogResult.OK)
-            {
-                LoadHrFilesIntoListView(@"C:\PGHtmlReport\xml", Arquivos);
-            }
+            new EditReport().ShowDialog();
+            LoadFiles();
         }
     }
 }

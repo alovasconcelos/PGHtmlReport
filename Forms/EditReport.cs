@@ -1,41 +1,54 @@
 ﻿using Npgsql;
-using PGHrmlReport.Helpers;
 using PGHrmlReport.Models;
 using PGHrmlReport.Util;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PGHrmlReport
 {
-    public partial class NewReport : Form
+    public partial class EditReport : Form
     {
-        public NewReport()
+        private Report report = new Report();
+        public EditReport(string filePath = null)
         {
+            Load += this.EditReport_Load;
+
             InitializeComponent();
             TxtQuery.Multiline = true; // Permite múltiplas linhas
             TxtQuery.ScrollBars = ScrollBars.Vertical; // Opcional: adiciona barras de rolagem
             TxtQuery.WordWrap = true; // Quebra de linha automática (opcional)
+            if (filePath != null) { 
+                // Carrega o relatório
+                report = XmlReaderHelper.ReadXml(filePath);
+                LoadReportDefinition();
+                TxtQuery.ReadOnly = true;
+            }
+        }
+
+        private void EditReport_Load(object? sender, EventArgs e)
+        {
+        }
+
+        private void LoadReportDefinition()
+        {
+            TxtTitle.Text = report.Title;
+            TxtDatabase.Text = report.Connection.Database;
+            TxtServer.Text = report.Connection.Server;
+            NumPort.Value = report.Connection.Port;
+            TxtUser.Text = report.Connection.User;
+            TxtPassword.Text = CriptoHelper.Decripto(report.Connection.Password, "P");
+            SetQuery(report.Query);
+            ColumnsGrid.DataSource = report.Columns;
         }
 
         private void BtnFechar_Click(object sender, EventArgs e)
         {
-            var res = MessageBox.Show("Descartar a inclusão?",
-                                "Novo relatório",
+            var res = MessageBox.Show($"Descartar as alterações?",
+                                "Relatório",
                                 MessageBoxButtons.YesNo,
                                 MessageBoxIcon.Question,
                                 MessageBoxDefaultButton.Button2);
             if (res == DialogResult.Yes)
             {
-
-                DialogResult = DialogResult.Cancel;
                 Close();
             }
         }
@@ -125,9 +138,8 @@ namespace PGHrmlReport
             return ValidateConnection();
         }
 
-        private bool SaveXML()
+        private void BuildReportObject()
         {
-            Report report = new Report();
             report.Title = Title();
             report.Query = Query();
             report.Connection = new Connection
@@ -136,7 +148,7 @@ namespace PGHrmlReport
                 Database = Database(),
                 Port = Port(),
                 User = User(),
-                Password = Password()
+                Password = CriptoHelper.Cripto(Password(), "P")
             };
 
             foreach (DataGridViewRow row in ColumnsGrid.Rows)
@@ -155,7 +167,10 @@ namespace PGHrmlReport
                     report.Columns.Add(column);
                 }
             }
+        }
 
+        private bool SaveXML()
+        {
             return XmlGenerator.GenerateXml(report, $@"C:\PGHtmlReport\xml\{Title()}.xml");
         }
 
@@ -165,13 +180,12 @@ namespace PGHrmlReport
             {
                 return;
             }
+            BuildReportObject();
             if (!SaveXML())
             {
                 MessageBox.Show("Erro salvando o arquivo XML", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            DialogResult = DialogResult.OK;
-            Close();
         }
 
         private void Aguarde(bool aguardando)
@@ -218,12 +232,10 @@ namespace PGHrmlReport
             alignmentColumn.Items.AddRange("Esquerda", "Centralizado", "Direita");
             ColumnsGrid.Columns.Add(alignmentColumn);
 
-            // Adiciona a coluna para o combo "Totalizar"
-            DataGridViewComboBoxColumn totalizeColumn = new DataGridViewComboBoxColumn();
+            // Adiciona a coluna para o checkbox "Totalizar"
+            DataGridViewCheckBoxColumn totalizeColumn = new DataGridViewCheckBoxColumn();
             totalizeColumn.Name = "Totalize";
             totalizeColumn.HeaderText = "Totalizar";
-            totalizeColumn.Items.AddRange("Não", "Sim"); // Opções do ComboBox
-            totalizeColumn.DefaultCellStyle.NullValue = "Não"; // Define o valor padrão como "Não"
             ColumnsGrid.Columns.Add(totalizeColumn);
 
             // Itera sobre as colunas do primeiro DataGridView (myDataGridView)
@@ -241,7 +253,11 @@ namespace PGHrmlReport
                 // Adiciona uma linha no ColumnsGrid com o título original, título editável, tipo de campo, alinhamento padrão e totalizar
                 var alinhamento = isNumeric ? "Direita" : "Esquerda";
 
-                ColumnsGrid.Rows.Add(column.HeaderText, $"{column.HeaderText.Substring(0, 1).ToUpper()}{column.HeaderText.Substring(1)}", fieldType, alinhamento, "Não");
+                ColumnsGrid.Rows.Add(column.HeaderText, 
+                                    $"{column.HeaderText.Substring(0, 1).ToUpper()}{column.HeaderText.Substring(1)}", 
+                                    fieldType, 
+                                    alinhamento, 
+                                    false);
 
             }
 
@@ -258,9 +274,10 @@ namespace PGHrmlReport
                     if (fieldType != "Int32" && fieldType != "Decimal" && fieldType != "Double" && fieldType != "Single")
                     {
                         var totalizeCell = row.Cells["Totalize"];
-                        totalizeCell.ReadOnly = true; // Desabilita o combo
+                        totalizeCell.Value = false; // Remove o checkbox para campos não numéricos
+                        totalizeCell.Style = new DataGridViewCellStyle { ForeColor = System.Drawing.Color.Transparent }; // Torna o texto invisível
+                        totalizeCell.ReadOnly = true; // Impede a edição
                         totalizeCell.Style.BackColor = ColumnsGrid.DefaultCellStyle.BackColor; // Mescla a célula com o fundo
-                        totalizeCell.Value = "Não"; // Define o valor como "Não"
                     }
                 }
             }
@@ -283,8 +300,11 @@ namespace PGHrmlReport
             }
 
             // Limpa o ColumnsGrid antes de adicionar novos dados
-            ColumnsGrid.Rows.Clear();
-            ColumnsGrid.Columns.Clear();
+            if (!TxtQuery.ReadOnly && (report.Query == null || report.Query != Query()))
+            {
+                ColumnsGrid.Rows.Clear();
+                ColumnsGrid.Columns.Clear();
+            }
 
             using var cmd = new NpgsqlCommand(Query(), conn);
             try
@@ -298,7 +318,13 @@ namespace PGHrmlReport
                 }
                 var qtLinhas = ResultDataGrid.RowCount - 1;
                 Mensagem(qtLinhas > 0 ? $"{qtLinhas} linha(s) retornada(s)" : "Nenhuma linha retornada");
-                PopulateColumnsGrid();
+                if (!TxtQuery.ReadOnly && (report.Query == null || report.Query != Query()))
+                {
+                    PopulateColumnsGrid();
+                    report.Query = Query();
+                }
+                PreviewAsync();
+
             }
             catch (Exception ex)
             {
@@ -308,6 +334,27 @@ namespace PGHrmlReport
             {
                 Aguarde(false);
                 conn.Close();
+            }
+        }
+
+        private async Task PreviewAsync()
+        {
+            if (report.Query != null)
+            {
+                var htmlReport = new HtmlReport(report);
+                var html = htmlReport.Render();
+                try
+                {
+                    // Inicializa o WebView2 explicitamente
+                    await WebView.EnsureCoreWebView2Async();
+
+                    // Agora podemos navegar para o conteúdo HTML
+                    WebView.CoreWebView2.NavigateToString(html);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao inicializar o WebView: {ex.Message}");
+                }
             }
         }
 
@@ -331,11 +378,16 @@ namespace PGHrmlReport
             }
         }
 
+        private void SetQuery(string sql)
+        {
+            TxtQuery.Text = sql.Replace("\n", Environment.NewLine);
+        }
+
         private void BtnCarregar_Click(object sender, EventArgs e)
         {
             TxtQuery.Clear();
             var query = SQLFileSelector.SelectAndReadSQLFile();
-            TxtQuery.Text = query;
+            SetQuery(query);
         }
 
         private void BtnLimpar_Click(object sender, EventArgs e)

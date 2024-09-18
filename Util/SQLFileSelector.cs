@@ -5,7 +5,7 @@ using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PGHrmlReport.Helpers
+namespace PGHrmlReport.Util
 {
     public class SQLFileSelector
     {
@@ -19,8 +19,7 @@ namespace PGHrmlReport.Helpers
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     string filePath = openFileDialog.FileName;
-                    var texto = File.ReadAllText(filePath); // Retorna o conteúdo do arquivo
-                    return texto.Replace("\n", Environment.NewLine);
+                    return File.ReadAllText(filePath); // Retorna o conteúdo do arquivo
                 }
             }
             return null; // Retorna null caso a operação falhe ou o arquivo não seja válido

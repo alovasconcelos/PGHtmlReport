@@ -43,8 +43,10 @@
             // 
             // Arquivos
             // 
+            Arquivos.BackColor = Color.Black;
             Arquivos.Cursor = Cursors.Hand;
             Arquivos.Dock = DockStyle.Fill;
+            Arquivos.ForeColor = Color.White;
             Arquivos.Location = new Point(0, 0);
             Arquivos.Margin = new Padding(20);
             Arquivos.Name = "Arquivos";
@@ -162,6 +164,7 @@
             Controls.Add(PanelMenu);
             Controls.Add(PanelTop);
             FormBorderStyle = FormBorderStyle.Fixed3D;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Shown += Form1_Shown;

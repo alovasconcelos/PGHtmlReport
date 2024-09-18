@@ -1,9 +1,7 @@
-﻿using System;
-using System.IO;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace PGHrmlReport.Helpers;
+namespace PGHrmlReport.Util;
 public static class CriptoHelper
 {
     // Método para criptografar
