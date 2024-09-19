@@ -50,10 +50,32 @@ namespace PGHrmlReport.Util
             height: 100%;
         }
     }
+    table {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    table td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    table tr:nth-child(even){background-color: #f2f2f2;}
+
+    table tr:hover {background-color: #ddd;}
+
+    table th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #AAFFFF;
+      color: black;
+    }
     h3 {
       color: black;
       text-align: center;
-      background-color: #e4d3cf;
+      background-color: #AAFFFF;
     }
 </style>                    ";
 
@@ -114,15 +136,16 @@ namespace PGHrmlReport.Util
         private string ReportBody()
         {
             string ret = string.Empty;
+            ret += ReportHeader();
             ret += TableHeader();
             ret += TableData();
             ret += TableFooter();
             return ret;
         }
 
-        private string ReportHeader(string title)
+        private string ReportHeader()
         {
-            string ret = $@"<h3>{title}</h3>";
+            string ret = $@"<h3>{report.Title}</h3>";
 
             return ret;
         }

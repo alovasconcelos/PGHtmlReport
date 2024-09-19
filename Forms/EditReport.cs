@@ -237,30 +237,27 @@ namespace PGHrmlReport
             totalizeColumn.HeaderText = "Totalizar";
             ColumnsGrid.Columns.Add(totalizeColumn);
 
-            // Itera sobre as colunas do primeiro DataGridView (myDataGridView)
-            /*
-            foreach (DataGridViewColumn column in ResultDataGrid.Columns)
+            foreach (DataColumn column in report.Data.Columns)
             {
                 // Obtem o tipo de dado da coluna
-                string fieldType = column.ValueType != null ? column.ValueType.Name : "Desconhecido";
+                string fieldType = column.DataType != null ? column.DataType.Name : "Desconhecido";
 
                 // Determina se o campo é numérico (int, decimal, double, etc.)
-                bool isNumeric = column.ValueType == typeof(int) ||
-                                 column.ValueType == typeof(decimal) ||
-                                 column.ValueType == typeof(double) ||
-                                 column.ValueType == typeof(float);
+                bool isNumeric = column.DataType == typeof(int) ||
+                                 column.DataType == typeof(decimal) ||
+                                 column.DataType == typeof(double) ||
+                                 column.DataType == typeof(float);
 
-                // Adiciona uma linha no ColumnsGrid com o título original, título editável, tipo de campo, alinhamento padrão e totalizar
+                // Adiciona uma linha no ColumnsGrid com o título original, título editável, tipo de campo, alinhamento padrão e totalizar (com "Não" como padrão)
+//                ColumnsGrid.Rows.Add(column.ColumnName, column.ColumnName, fieldType, "Esquerda", "Não");
                 var alinhamento = isNumeric ? "Direita" : "Esquerda";
 
-                ColumnsGrid.Rows.Add(column.HeaderText, 
-                                    $"{column.HeaderText.Substring(0, 1).ToUpper()}{column.HeaderText.Substring(1)}", 
-                                    fieldType, 
-                                    alinhamento, 
+                ColumnsGrid.Rows.Add(column.ColumnName,
+                                    $"{column.ColumnName.Substring(0, 1).ToUpper()}{column.ColumnName.Substring(1)}",
+                                    fieldType,
+                                    alinhamento,
                                     false);
-
             }
-            */
             // Desabilita o combo de Totalizar para campos não numéricos
             foreach (DataGridViewRow row in ColumnsGrid.Rows)
             {
@@ -315,12 +312,12 @@ namespace PGHrmlReport
                     dataTable.Load(reader);
                 }
                 var qtLinhas = dataTable.Rows.Count;
+                report.Data = dataTable;
                 Mensagem(qtLinhas > 0 ? $"{qtLinhas} linha(s) retornada(s)" : "Nenhuma linha retornada");
                 if (!TxtQuery.ReadOnly && (report.Query == null || report.Query != Query()))
                 {
                     PopulateColumnsGrid();
                     report.Query = Query();
-                    report.Data = dataTable;
                 }
                 PreviewAsync();
 
