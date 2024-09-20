@@ -20,36 +20,6 @@ namespace PGHrmlReport.Util
         {
             var ret = @"
 <style>
-    /* Define o tamanho da página como A4 */
-    @page {
-        size: A4;
-        margin: 10mm; /* Define a margem da página (opcional) */
-    }
-
-    /* Estilo geral para o conteúdo da página */
-    body {
-        width: 210mm;
-        height: 297mm;
-        margin: 0;
-        padding: 10mm;
-        box-sizing: border-box;
-        font-family: Arial, sans-serif;
-    }
-
-    /* Se necessário, defina uma área de conteúdo específica */
-    .content {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-    }
-
-    /* Forçar a visualização da página em modo retrato (opcional) */
-    @media print {
-        body {
-            width: auto;
-            height: 100%;
-        }
-    }
     table {
       font-family: Arial, Helvetica, sans-serif;
       border-collapse: collapse;
@@ -145,7 +115,7 @@ namespace PGHrmlReport.Util
 
         private string ReportHeader()
         {
-            string ret = $@"<h3>{report.Title}</h3>";
+            string ret = $@"<p style='text-align: center;'><h3>{report.Title}</h3></p>";
 
             return ret;
         }

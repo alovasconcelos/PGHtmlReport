@@ -1,3 +1,4 @@
+using PGHrmlReport.Forms;
 using PGHrmlReport.Util;
 
 namespace PGHrmlReport
@@ -22,15 +23,10 @@ namespace PGHrmlReport
                 string filePath = selectedItem.Tag.ToString();
 
                 // Call your function when the user double-clicks on an icon
-                OnFileDoubleClick(filePath);
+                new ShowReport(filePath).ShowDialog();
             }
         }
 
-        private void OnFileDoubleClick(string? filePath)
-        {
-            new EditReport(filePath).ShowDialog();
-            LoadFiles();
-        }
 
         public void LoadHrFilesIntoListView(string folderPath, ListView listView)
         {
@@ -50,7 +46,7 @@ namespace PGHrmlReport
                     string fileName = Path.GetFileName(file);
 
                     // Create a dummy icon for illustration (you can load specific icons here)
-                    Icon fileIcon = Icon.ExtractAssociatedIcon(file);                    
+                    Icon fileIcon = Icon.ExtractAssociatedIcon(file);
 
 
                     // Add the icon to the ImageList
@@ -94,6 +90,25 @@ namespace PGHrmlReport
         private void BtnNovo_Click(object sender, EventArgs e)
         {
             new EditReport().ShowDialog();
+            LoadFiles();
+        }
+
+        private void BtnAlterar_Click(object sender, EventArgs e)
+        {
+            
+            if (Arquivos.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Selecione o relatório que deseja alterar");
+                return;
+            }
+            
+            // Get the clicked item
+            ListViewItem selectedItem = Arquivos.SelectedItems[0];
+
+            // Retrieve the file path from the Tag property
+            string filePath = selectedItem.Tag.ToString();
+
+            new EditReport(filePath).ShowDialog();
             LoadFiles();
         }
     }

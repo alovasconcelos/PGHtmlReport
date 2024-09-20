@@ -88,6 +88,7 @@
             BtnAlterar.Text = "    Alterar";
             BtnAlterar.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnAlterar.UseVisualStyleBackColor = false;
+            BtnAlterar.Click += BtnAlterar_Click;
             // 
             // BtnGerar
             // 
