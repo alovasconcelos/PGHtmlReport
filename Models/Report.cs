@@ -31,6 +31,8 @@ namespace PGHrmlReport.Models
             set { Query = value.Value; }
         }
         public List<Column> Columns { get; set; } = new List<Column>();
+
+        [XmlIgnore] 
         public DataTable Data {  get; set; }
 
         public Report() { }

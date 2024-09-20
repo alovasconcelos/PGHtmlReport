@@ -77,7 +77,7 @@ namespace PGHrmlReport.Util
       text-align: center;
       background-color: #AAFFFF;
     }
-</style>                    ";
+</style>";
 
             return ret;
         }

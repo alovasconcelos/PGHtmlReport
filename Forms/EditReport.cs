@@ -7,6 +7,7 @@ namespace PGHrmlReport
 {
     public partial class EditReport : Form
     {
+        private Report originalReport = new Report();
         private Report report = new Report();
         public EditReport(string filePath = null)
         {
@@ -16,11 +17,13 @@ namespace PGHrmlReport
             TxtQuery.Multiline = true; // Permite múltiplas linhas
             TxtQuery.ScrollBars = ScrollBars.Vertical; // Opcional: adiciona barras de rolagem
             TxtQuery.WordWrap = true; // Quebra de linha automática (opcional)
-            if (filePath != null) { 
+            if (filePath != null) {
                 // Carrega o relatório
                 report = XmlReaderHelper.ReadXml(filePath);
+                originalReport = report;
                 LoadReportDefinition();
                 TxtQuery.ReadOnly = true;
+                RunQuery();
             }
         }
 
@@ -38,19 +41,46 @@ namespace PGHrmlReport
             TxtPassword.Text = CriptoHelper.Decripto(report.Connection.Password, "P");
             SetQuery(report.Query);
             ColumnsGrid.DataSource = report.Columns;
+            SetCustomColumnHeaders();
+        }
+
+        private void SetCustomColumnHeaders()
+        {
+            // Verifica se o DataSource foi carregado
+            if (ColumnsGrid.DataSource != null)
+            {
+                // Ajusta o título da coluna "OriginalTitles" para "Título Original"
+                ColumnsGrid.Columns["Value"].HeaderText = "Coluna";
+
+                // Ajusta o título da coluna "EditableTitles" para "Título Editável"
+                ColumnsGrid.Columns["Title"].HeaderText = "Título";
+
+                // Ajusta o título da coluna "FieldType" para "Tipo"
+                ColumnsGrid.Columns["Type"].HeaderText = "Tipo";
+
+                // Ajusta o título da coluna "Alignment" para "Alinhamento"
+                ColumnsGrid.Columns["Align"].HeaderText = "Alinhamento";
+
+                // Ajusta o título da coluna "Totalize" para "Totalizar"
+                ColumnsGrid.Columns["Total"].HeaderText = "Totalizar";
+            }
         }
 
         private void BtnFechar_Click(object sender, EventArgs e)
         {
-            var res = MessageBox.Show($"Descartar as alterações?",
-                                "Relatório",
-                                MessageBoxButtons.YesNo,
-                                MessageBoxIcon.Question,
-                                MessageBoxDefaultButton.Button2);
-            if (res == DialogResult.Yes)
+            if (!report.Equals(originalReport))
             {
-                Close();
+                var res = MessageBox.Show($"Descartar as alterações?",
+                                    "Relatório",
+                                    MessageBoxButtons.YesNo,
+                                    MessageBoxIcon.Question,
+                                    MessageBoxDefaultButton.Button2);
+                if (res != DialogResult.Yes)
+                {
+                    return;
+                }
             }
+            Close();
         }
 
         private string Title()
@@ -154,15 +184,16 @@ namespace PGHrmlReport
             foreach (DataGridViewRow row in ColumnsGrid.Rows)
             {
                 // Verifica se a célula FieldType existe e tem um valor válido antes de acessar
-                var fieldTypeCell = row.Cells["FieldType"];
+                var fieldTypeCell = row.Cells["Type"];
                 if (fieldTypeCell != null && fieldTypeCell.Value != null)
                 {
                     Column column = new Column
                     {
-                        Title = row.Cells["EditableTitles"].Value.ToString(),
-                        Value = row.Cells["OriginalTitles"].Value.ToString(),
-                        Align = row.Cells["Alignment"].Value.ToString(),
-                        Total = row.Cells["Totalize"].Value.ToString().Equals("Sim")
+                        Title = row.Cells["Title"].Value.ToString(),
+                        Value = row.Cells["Value"].Value.ToString(),
+                        Type = row.Cells["Type"].Value.ToString(),
+                        Align = row.Cells["Align"].Value.ToString(),
+                        Total = row.Cells["Total"].Value.Equals(true),
                     };
                     report.Columns.Add(column);
                 }
@@ -205,35 +236,35 @@ namespace PGHrmlReport
         {
             // Adiciona a primeira coluna não editável com o nome original dos campos
             DataGridViewTextBoxColumn originalColumn = new DataGridViewTextBoxColumn();
-            originalColumn.Name = "OriginalTitles";
+            originalColumn.Name = "Value";
             originalColumn.HeaderText = "Coluna";
             originalColumn.ReadOnly = true; // Torna a coluna não editável
             ColumnsGrid.Columns.Add(originalColumn);
 
             // Adiciona a segunda coluna editável com os títulos que podem ser modificados
             DataGridViewTextBoxColumn editableColumn = new DataGridViewTextBoxColumn();
-            editableColumn.Name = "EditableTitles";
+            editableColumn.Name = "Title";
             editableColumn.HeaderText = "Título";
             editableColumn.ReadOnly = false; // Permite edição
             ColumnsGrid.Columns.Add(editableColumn);
 
             // Adiciona a coluna para o tipo de campo
             DataGridViewTextBoxColumn typeColumn = new DataGridViewTextBoxColumn();
-            typeColumn.Name = "FieldType";
+            typeColumn.Name = "Type";
             typeColumn.HeaderText = "Tipo";
             typeColumn.ReadOnly = true; // Não editável
             ColumnsGrid.Columns.Add(typeColumn);
 
             // Cria a coluna ComboBox para Alinhamento
             DataGridViewComboBoxColumn alignmentColumn = new DataGridViewComboBoxColumn();
-            alignmentColumn.Name = "Alignment";
+            alignmentColumn.Name = "Align";
             alignmentColumn.HeaderText = "Alinhamento";
             alignmentColumn.Items.AddRange("Esquerda", "Centralizado", "Direita");
             ColumnsGrid.Columns.Add(alignmentColumn);
 
             // Adiciona a coluna para o checkbox "Totalizar"
             DataGridViewCheckBoxColumn totalizeColumn = new DataGridViewCheckBoxColumn();
-            totalizeColumn.Name = "Totalize";
+            totalizeColumn.Name = "Total";
             totalizeColumn.HeaderText = "Totalizar";
             ColumnsGrid.Columns.Add(totalizeColumn);
 
@@ -262,7 +293,7 @@ namespace PGHrmlReport
             foreach (DataGridViewRow row in ColumnsGrid.Rows)
             {
                 // Verifica se a célula FieldType existe e tem um valor válido antes de acessar
-                var fieldTypeCell = row.Cells["FieldType"];
+                var fieldTypeCell = row.Cells["Type"];
                 if (fieldTypeCell != null && fieldTypeCell.Value != null)
                 {
                     string fieldType = fieldTypeCell.Value.ToString();
@@ -270,7 +301,7 @@ namespace PGHrmlReport
                     // Se o campo não for numérico, desabilita o combo de totalizar
                     if (fieldType != "Int32" && fieldType != "Decimal" && fieldType != "Double" && fieldType != "Single")
                     {
-                        var totalizeCell = row.Cells["Totalize"];
+                        var totalizeCell = row.Cells["Total"];
                         totalizeCell.Value = false; // Remove o checkbox para campos não numéricos
                         totalizeCell.Style = new DataGridViewCellStyle { ForeColor = System.Drawing.Color.Transparent }; // Torna o texto invisível
                         totalizeCell.ReadOnly = true; // Impede a edição
@@ -362,6 +393,7 @@ namespace PGHrmlReport
         private void TxtQuery_TextChanged(object sender, EventArgs e)
         {
             BtnTestar.Enabled = Query().Length > 0;
+            BtnSalvar.Enabled = BtnTestar.Enabled;
         }
 
 

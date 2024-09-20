@@ -12,5 +12,6 @@ namespace PGHrmlReport.Models
         public string Value { get; set; } = string.Empty;
         public string Align { get; set; } = string.Empty;
         public bool Total { get; set; } = false;
+        public string Type { get; set; }
     }
 }

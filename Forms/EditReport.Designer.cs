@@ -265,9 +265,9 @@
             PanelBottom.Controls.Add(BtnSalvar);
             PanelBottom.Controls.Add(BtnFechar);
             PanelBottom.Dock = DockStyle.Bottom;
-            PanelBottom.Location = new Point(0, 721);
+            PanelBottom.Location = new Point(0, 717);
             PanelBottom.Name = "PanelBottom";
-            PanelBottom.Size = new Size(1331, 105);
+            PanelBottom.Size = new Size(1327, 105);
             PanelBottom.TabIndex = 6;
             // 
             // LabelMensagem
@@ -286,10 +286,11 @@
             BtnSalvar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             BtnSalvar.BackColor = Color.Transparent;
             BtnSalvar.Cursor = Cursors.Hand;
+            BtnSalvar.Enabled = false;
             BtnSalvar.FlatStyle = FlatStyle.Popup;
             BtnSalvar.ForeColor = Color.White;
             BtnSalvar.Image = (Image)resources.GetObject("BtnSalvar.Image");
-            BtnSalvar.Location = new Point(1024, 20);
+            BtnSalvar.Location = new Point(1020, 20);
             BtnSalvar.Name = "BtnSalvar";
             BtnSalvar.Padding = new Padding(10);
             BtnSalvar.Size = new Size(137, 65);
@@ -307,7 +308,7 @@
             BtnFechar.FlatStyle = FlatStyle.Popup;
             BtnFechar.ForeColor = Color.White;
             BtnFechar.Image = (Image)resources.GetObject("BtnFechar.Image");
-            BtnFechar.Location = new Point(1167, 20);
+            BtnFechar.Location = new Point(1163, 20);
             BtnFechar.Name = "BtnFechar";
             BtnFechar.Padding = new Padding(10);
             BtnFechar.Size = new Size(137, 65);
@@ -470,7 +471,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(1331, 826);
+            ClientSize = new Size(1327, 822);
             ControlBox = false;
             Controls.Add(PanelPreview);
             Controls.Add(PanelResult);
