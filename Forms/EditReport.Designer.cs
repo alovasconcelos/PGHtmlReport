@@ -91,7 +91,7 @@
             TxtTitle.Location = new Point(9, 45);
             TxtTitle.MaxLength = 80;
             TxtTitle.Name = "TxtTitle";
-            TxtTitle.Size = new Size(735, 34);
+            TxtTitle.Size = new Size(763, 34);
             TxtTitle.TabIndex = 0;
             // 
             // groupBox1
@@ -237,7 +237,7 @@
             groupBox2.ForeColor = Color.White;
             groupBox2.Location = new Point(322, 85);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(422, 249);
+            groupBox2.Size = new Size(884, 249);
             groupBox2.TabIndex = 3;
             groupBox2.TabStop = false;
             groupBox2.Text = "SQL";
@@ -248,14 +248,16 @@
             TxtQuery.AcceptsTab = true;
             TxtQuery.BackColor = Color.Black;
             TxtQuery.BorderStyle = BorderStyle.None;
+            TxtQuery.Cursor = Cursors.IBeam;
             TxtQuery.Dock = DockStyle.Fill;
             TxtQuery.Font = new Font("Courier New", 9F);
             TxtQuery.ForeColor = Color.White;
             TxtQuery.Location = new Point(3, 30);
-            TxtQuery.MaxLength = 80;
+            TxtQuery.MaxLength = 2147483646;
             TxtQuery.Multiline = true;
             TxtQuery.Name = "TxtQuery";
-            TxtQuery.Size = new Size(416, 216);
+            TxtQuery.ScrollBars = ScrollBars.Both;
+            TxtQuery.Size = new Size(878, 216);
             TxtQuery.TabIndex = 0;
             TxtQuery.TextChanged += TxtQuery_TextChanged;
             // 
@@ -265,9 +267,9 @@
             PanelBottom.Controls.Add(BtnSalvar);
             PanelBottom.Controls.Add(BtnFechar);
             PanelBottom.Dock = DockStyle.Bottom;
-            PanelBottom.Location = new Point(0, 717);
+            PanelBottom.Location = new Point(0, 697);
             PanelBottom.Name = "PanelBottom";
-            PanelBottom.Size = new Size(1327, 105);
+            PanelBottom.Size = new Size(1226, 105);
             PanelBottom.TabIndex = 6;
             // 
             // LabelMensagem
@@ -290,7 +292,7 @@
             BtnSalvar.FlatStyle = FlatStyle.Popup;
             BtnSalvar.ForeColor = Color.White;
             BtnSalvar.Image = (Image)resources.GetObject("BtnSalvar.Image");
-            BtnSalvar.Location = new Point(1020, 20);
+            BtnSalvar.Location = new Point(919, 20);
             BtnSalvar.Name = "BtnSalvar";
             BtnSalvar.Padding = new Padding(10);
             BtnSalvar.Size = new Size(137, 65);
@@ -308,7 +310,7 @@
             BtnFechar.FlatStyle = FlatStyle.Popup;
             BtnFechar.ForeColor = Color.White;
             BtnFechar.Image = (Image)resources.GetObject("BtnFechar.Image");
-            BtnFechar.Location = new Point(1163, 20);
+            BtnFechar.Location = new Point(1062, 20);
             BtnFechar.Name = "BtnFechar";
             BtnFechar.Padding = new Padding(10);
             BtnFechar.Size = new Size(137, 65);
@@ -327,7 +329,7 @@
             BtnTestar.ForeColor = Color.White;
             BtnTestar.Image = (Image)resources.GetObject("BtnTestar.Image");
             BtnTestar.ImageAlign = ContentAlignment.TopCenter;
-            BtnTestar.Location = new Point(662, 338);
+            BtnTestar.Location = new Point(1124, 24);
             BtnTestar.Name = "BtnTestar";
             BtnTestar.Size = new Size(82, 72);
             BtnTestar.TabIndex = 1;
@@ -345,7 +347,7 @@
             BtnLimpar.ForeColor = Color.White;
             BtnLimpar.Image = (Image)resources.GetObject("BtnLimpar.Image");
             BtnLimpar.ImageAlign = ContentAlignment.TopCenter;
-            BtnLimpar.Location = new Point(486, 338);
+            BtnLimpar.Location = new Point(948, 24);
             BtnLimpar.Name = "BtnLimpar";
             BtnLimpar.Size = new Size(82, 72);
             BtnLimpar.TabIndex = 8;
@@ -363,7 +365,7 @@
             BtnCarregar.ForeColor = Color.White;
             BtnCarregar.Image = (Image)resources.GetObject("BtnCarregar.Image");
             BtnCarregar.ImageAlign = ContentAlignment.TopCenter;
-            BtnCarregar.Location = new Point(574, 338);
+            BtnCarregar.Location = new Point(1036, 24);
             BtnCarregar.Name = "BtnCarregar";
             BtnCarregar.Size = new Size(82, 72);
             BtnCarregar.TabIndex = 9;
@@ -384,16 +386,16 @@
             PanelTop.Controls.Add(groupBox2);
             PanelTop.Location = new Point(12, 12);
             PanelTop.Name = "PanelTop";
-            PanelTop.Size = new Size(756, 422);
+            PanelTop.Size = new Size(1209, 344);
             PanelTop.TabIndex = 10;
             // 
             // PanelPreview
             // 
             PanelPreview.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             PanelPreview.Controls.Add(groupBox3);
-            PanelPreview.Location = new Point(774, 26);
+            PanelPreview.Location = new Point(625, 362);
             PanelPreview.Name = "PanelPreview";
-            PanelPreview.Size = new Size(565, 694);
+            PanelPreview.Size = new Size(593, 358);
             PanelPreview.TabIndex = 12;
             // 
             // groupBox3
@@ -404,7 +406,7 @@
             groupBox3.ForeColor = Color.White;
             groupBox3.Location = new Point(0, 0);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(565, 694);
+            groupBox3.Size = new Size(593, 358);
             groupBox3.TabIndex = 7;
             groupBox3.TabStop = false;
             groupBox3.Text = "Preview";
@@ -420,7 +422,7 @@
             WebView.Location = new Point(3, 30);
             WebView.Name = "WebView";
             WebView.Padding = new Padding(5);
-            WebView.Size = new Size(559, 661);
+            WebView.Size = new Size(587, 325);
             WebView.TabIndex = 0;
             WebView.ZoomFactor = 1D;
             // 
@@ -428,9 +430,9 @@
             // 
             PanelResult.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             PanelResult.Controls.Add(GroupColunas);
-            PanelResult.Location = new Point(12, 440);
+            PanelResult.Location = new Point(12, 362);
             PanelResult.Name = "PanelResult";
-            PanelResult.Size = new Size(744, 280);
+            PanelResult.Size = new Size(607, 358);
             PanelResult.TabIndex = 11;
             // 
             // GroupColunas
@@ -441,7 +443,7 @@
             GroupColunas.ForeColor = Color.White;
             GroupColunas.Location = new Point(0, 0);
             GroupColunas.Name = "GroupColunas";
-            GroupColunas.Size = new Size(744, 280);
+            GroupColunas.Size = new Size(607, 358);
             GroupColunas.TabIndex = 7;
             GroupColunas.TabStop = false;
             GroupColunas.Text = "Colunas";
@@ -463,7 +465,7 @@
             ColumnsGrid.Location = new Point(3, 30);
             ColumnsGrid.Name = "ColumnsGrid";
             ColumnsGrid.RowHeadersWidth = 51;
-            ColumnsGrid.Size = new Size(738, 247);
+            ColumnsGrid.Size = new Size(601, 325);
             ColumnsGrid.TabIndex = 1;
             // 
             // EditReport
@@ -471,7 +473,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(1327, 822);
+            ClientSize = new Size(1226, 802);
             ControlBox = false;
             Controls.Add(PanelPreview);
             Controls.Add(PanelResult);

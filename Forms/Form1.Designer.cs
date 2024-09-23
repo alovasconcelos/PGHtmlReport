@@ -35,7 +35,6 @@
             BtnGerar = new Button();
             BtnSair = new Button();
             PanelMenu = new Panel();
-            PanelTop = new Panel();
             PanelMain = new Panel();
             PanelMenu.SuspendLayout();
             PanelMain.SuspendLayout();
@@ -50,7 +49,7 @@
             Arquivos.Location = new Point(0, 0);
             Arquivos.Margin = new Padding(20);
             Arquivos.Name = "Arquivos";
-            Arquivos.Size = new Size(804, 441);
+            Arquivos.Size = new Size(804, 530);
             Arquivos.TabIndex = 0;
             Arquivos.UseCompatibleStateImageBehavior = false;
             // 
@@ -115,7 +114,7 @@
             BtnSair.FlatStyle = FlatStyle.Popup;
             BtnSair.ForeColor = Color.White;
             BtnSair.Image = (Image)resources.GetObject("BtnSair.Image");
-            BtnSair.Location = new Point(0, 364);
+            BtnSair.Location = new Point(0, 453);
             BtnSair.Name = "BtnSair";
             BtnSair.Padding = new Padding(10);
             BtnSair.Size = new Size(137, 77);
@@ -132,26 +131,18 @@
             PanelMenu.Controls.Add(BtnNovo);
             PanelMenu.Controls.Add(BtnSair);
             PanelMenu.Dock = DockStyle.Left;
-            PanelMenu.Location = new Point(0, 89);
+            PanelMenu.Location = new Point(0, 0);
             PanelMenu.Name = "PanelMenu";
-            PanelMenu.Size = new Size(137, 441);
+            PanelMenu.Size = new Size(137, 530);
             PanelMenu.TabIndex = 5;
-            // 
-            // PanelTop
-            // 
-            PanelTop.Dock = DockStyle.Top;
-            PanelTop.Location = new Point(0, 0);
-            PanelTop.Name = "PanelTop";
-            PanelTop.Size = new Size(941, 89);
-            PanelTop.TabIndex = 6;
             // 
             // PanelMain
             // 
             PanelMain.Controls.Add(Arquivos);
             PanelMain.Dock = DockStyle.Fill;
-            PanelMain.Location = new Point(137, 89);
+            PanelMain.Location = new Point(137, 0);
             PanelMain.Name = "PanelMain";
-            PanelMain.Size = new Size(804, 441);
+            PanelMain.Size = new Size(804, 530);
             PanelMain.TabIndex = 7;
             // 
             // Form1
@@ -160,14 +151,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(941, 530);
-            ControlBox = false;
             Controls.Add(PanelMain);
             Controls.Add(PanelMenu);
-            Controls.Add(PanelTop);
-            FormBorderStyle = FormBorderStyle.Fixed3D;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
+            Text = "PGHtmlReport - 1.0.0";
             Shown += Form1_Shown;
             PanelMenu.ResumeLayout(false);
             PanelMain.ResumeLayout(false);
@@ -182,7 +172,6 @@
         private Button BtnGerar;
         private Button BtnSair;
         private Panel PanelMenu;
-        private Panel PanelTop;
         private Panel PanelMain;
     }
 }

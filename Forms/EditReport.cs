@@ -17,7 +17,8 @@ namespace PGHrmlReport
             TxtQuery.Multiline = true; // Permite múltiplas linhas
             TxtQuery.ScrollBars = ScrollBars.Vertical; // Opcional: adiciona barras de rolagem
             TxtQuery.WordWrap = true; // Quebra de linha automática (opcional)
-            if (filePath != null) {
+            if (filePath != null)
+            {
                 // Carrega o relatório
                 report = XmlReaderHelper.ReadXml(filePath);
                 originalReport = report;
@@ -280,7 +281,7 @@ namespace PGHrmlReport
                                  column.DataType == typeof(float);
 
                 // Adiciona uma linha no ColumnsGrid com o título original, título editável, tipo de campo, alinhamento padrão e totalizar (com "Não" como padrão)
-//                ColumnsGrid.Rows.Add(column.ColumnName, column.ColumnName, fieldType, "Esquerda", "Não");
+                //                ColumnsGrid.Rows.Add(column.ColumnName, column.ColumnName, fieldType, "Esquerda", "Não");
                 var alinhamento = isNumeric ? "Direita" : "Esquerda";
 
                 ColumnsGrid.Rows.Add(column.ColumnName,
