@@ -41,7 +41,6 @@
             relatórioToolStripMenuItem2 = new ToolStripMenuItem();
             conexãoToolStripMenuItem1 = new ToolStripMenuItem();
             testarToolStripMenuItem = new ToolStripMenuItem();
-            PanelMain.SuspendLayout();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -50,7 +49,8 @@
             PanelMain.Dock = DockStyle.Fill;
             PanelMain.Location = new Point(0, 28);
             PanelMain.Name = "PanelMain";
-            PanelMain.Size = new Size(941, 502);
+            PanelMain.Padding = new Padding(10);
+            PanelMain.Size = new Size(1059, 582);
             PanelMain.TabIndex = 7;
             // 
             // menuStrip1
@@ -59,7 +59,8 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { relatórioToolStripMenuItem, editarToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(941, 28);
+            menuStrip1.Padding = new Padding(7, 2, 0, 2);
+            menuStrip1.Size = new Size(1059, 28);
             menuStrip1.TabIndex = 8;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -75,7 +76,7 @@
             novoRelatórioToolStripMenuItem.Image = (Image)resources.GetObject("novoRelatórioToolStripMenuItem.Image");
             novoRelatórioToolStripMenuItem.Name = "novoRelatórioToolStripMenuItem";
             novoRelatórioToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.N;
-            novoRelatórioToolStripMenuItem.Size = new Size(224, 26);
+            novoRelatórioToolStripMenuItem.Size = new Size(199, 26);
             novoRelatórioToolStripMenuItem.Text = "Novo";
             novoRelatórioToolStripMenuItem.Click += novoRelatórioToolStripMenuItem_Click;
             // 
@@ -84,7 +85,7 @@
             exportarToolStripMenuItem.Image = (Image)resources.GetObject("exportarToolStripMenuItem.Image");
             exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
             exportarToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.X;
-            exportarToolStripMenuItem.Size = new Size(224, 26);
+            exportarToolStripMenuItem.Size = new Size(199, 26);
             exportarToolStripMenuItem.Text = "Exportar";
             // 
             // toolStripMenuItem2
@@ -92,21 +93,21 @@
             toolStripMenuItem2.Image = (Image)resources.GetObject("toolStripMenuItem2.Image");
             toolStripMenuItem2.Name = "toolStripMenuItem2";
             toolStripMenuItem2.ShortcutKeys = Keys.Control | Keys.O;
-            toolStripMenuItem2.Size = new Size(224, 26);
+            toolStripMenuItem2.Size = new Size(199, 26);
             toolStripMenuItem2.Text = "Abrir";
             toolStripMenuItem2.Click += toolStripMenuItem2_Click;
             // 
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(221, 6);
+            toolStripMenuItem1.Size = new Size(196, 6);
             // 
             // sairToolStripMenuItem
             // 
             sairToolStripMenuItem.Image = (Image)resources.GetObject("sairToolStripMenuItem.Image");
             sairToolStripMenuItem.Name = "sairToolStripMenuItem";
             sairToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.F4;
-            sairToolStripMenuItem.Size = new Size(224, 26);
+            sairToolStripMenuItem.Size = new Size(199, 26);
             sairToolStripMenuItem.Text = "Sair";
             sairToolStripMenuItem.Click += sairToolStripMenuItem_Click;
             // 
@@ -142,12 +143,14 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(941, 530);
+            ClientSize = new Size(1059, 610);
             Controls.Add(PanelMain);
             Controls.Add(menuStrip1);
+            Font = new Font("Segoe UI", 10F);
+            ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
@@ -156,7 +159,6 @@
             Text = "PGHtmlReport - 1.0.0";
             WindowState = FormWindowState.Maximized;
             Shown += Form1_Shown;
-            PanelMain.ResumeLayout(false);
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
