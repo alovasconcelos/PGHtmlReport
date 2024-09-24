@@ -14,9 +14,7 @@ namespace PGHrmlReport
             Load += this.EditReport_Load;
 
             InitializeComponent();
-            TxtQuery.Multiline = true; // Permite múltiplas linhas
-            TxtQuery.ScrollBars = ScrollBars.Vertical; // Opcional: adiciona barras de rolagem
-            TxtQuery.WordWrap = true; // Quebra de linha automática (opcional)
+
             if (filePath != null)
             {
                 // Carrega o relatório

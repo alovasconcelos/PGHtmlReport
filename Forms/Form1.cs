@@ -5,11 +5,10 @@ namespace PGHrmlReport
 {
     public partial class Form1 : Form
     {
+        private ListView Arquivos = new ListView();
         public Form1()
         {
             InitializeComponent();
-            Arquivos.View = View.LargeIcon;
-            Arquivos.ItemActivate += Arquivos_ItemActivate;
         }
 
         private void Arquivos_ItemActivate(object? sender, EventArgs e)
@@ -34,7 +33,7 @@ namespace PGHrmlReport
             listView.Items.Clear();
             listView.LargeImageList = new ImageList();
             listView.LargeImageList.ImageSize = new Size(32, 32); // Set the icon size
-
+            
             try
             {
                 // Get all .hr files from the specified folder
@@ -78,30 +77,66 @@ namespace PGHrmlReport
 
 
         private void Form1_Shown(object sender, EventArgs e)
-        {
+        {            
             LoadFiles();
+            MainScreen();
         }
 
-        private void BtnSair_Click(object sender, EventArgs e)
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void BtnNovo_Click(object sender, EventArgs e)
+        private void OpenForm(Form form)
         {
-            new EditReport().ShowDialog();
-            LoadFiles();
+            // Limpa o PanelMain de qualquer controle existente
+            PanelMain.Controls.Clear();
+
+            // Define o formulário como não sendo uma janela principal (sem bordas)
+            form.TopLevel = false;
+
+            // Define o formulário como filho do PanelMain
+            form.FormBorderStyle = FormBorderStyle.None;
+
+            // Preenche todo o espaço do PanelMain
+            form.Dock = DockStyle.Fill;
+
+            form.FormClosed += Form_FormClosed;
+
+            // Adiciona o formulário ao PanelMain
+            PanelMain.Controls.Add(form);
+
+            // Exibe o formulário
+            form.Show();
         }
 
-        private void BtnAlterar_Click(object sender, EventArgs e)
+        private void Form_FormClosed(object? sender, FormClosedEventArgs e)
         {
-            
+            MainScreen();
+        }
+
+        private void MainScreen()
+        {
+            PanelMain.Controls.Clear();
+            Arquivos.Dock = DockStyle.Fill;
+            PanelMain.Controls.Add(Arquivos);
+        }
+
+        private void novoRelatórioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var f = new EditReport();
+            OpenForm(f);
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
             if (Arquivos.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Selecione o relatório que deseja alterar");
                 return;
             }
-            
+
             // Get the clicked item
             ListViewItem selectedItem = Arquivos.SelectedItems[0];
 
@@ -110,6 +145,7 @@ namespace PGHrmlReport
 
             new EditReport(filePath).ShowDialog();
             LoadFiles();
+
         }
     }
 }
