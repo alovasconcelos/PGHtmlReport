@@ -137,6 +137,18 @@
         RK5CYII=
 </value>
   </data>
+  <data name="toolStripMenuItem2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAAUpJREFUWEdjGAWjYMQAe4b/LFAmKohh+HCfGBzN8EYGqoUsEMPwsT2S4ZMGlIsA
+        QMP/E4PjGd4rQLWQBWIZPsyPZvjwHMMR2CzDgSOiGd47YMNAw02gxsEBUL0KUC4khuF9AhCXAPnnQeZg
+        OAJqOCUYaPBbHVAcRzO8iwFasB4o9hlNDQpGcQQ2BSTg1fEM/zmiGD64AH17G4s8Tgx3BJCDNdERgTdD
+        fA0O5t9APlaLCODz4FAgFwAtDiDXcmAIXI5n+CIBNYp0AAp6UDBCHbAaGBIpoASJjKFRUwCUXwxRC3PA
+        +92hDC95wAahayIef+gGGQq0JAO7PAIDs7AAKBuCLAfRKIUSwlW0wyBHQMqBj81QaxEAmwZqY5ADsJaC
+        IIBNA7UxyAFQ6zABNg3UxqMOGHXAqAMGtwNAkrTGoLoAat0oGAWDDTAwAACbvGN1OGNSPQAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
   <data name="exportarToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -149,18 +161,6 @@
         5l5Nu34Ef48HlJ6GYmP4cWT7HQORCYALDPNnfoy0K5S+28/ROzWCv8XXYRZrJgDqXD62APBUkcGedrEJ
         juPpjxJ8Y82pzACUgTCPHONrWhjUimtOWQGgCIFYD8aPVbcs/qEOcRuGf2Qmm1PWACjESsjjlvRGm9Ef
         15yyCkDxNSDnQU9/lXUAdQKOb78kWQdIq0UA8rJlARD5BpVjEymHz6pFAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="toolStripMenuItem2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vAAADrwBlbxySQAAAUpJREFUWEdjGAWjYMQAe4b/LFAmKohh+HCfGBzN8EYGqoUsEMPwsT2S4ZMGlIsA
-        QMP/E4PjGd4rQLWQBWIZPsyPZvjwHMMR2CzDgSOiGd47YMNAw02gxsEBUL0KUC4khuF9AhCXAPnnQeZg
-        OAJqOCUYaPBbHVAcRzO8iwFasB4o9hlNDQpGcQQ2BSTg1fEM/zmiGD64AH17G4s8Tgx3BJCDNdERgTdD
-        fA0O5t9APlaLCODz4FAgFwAtDiDXcmAIXI5n+CIBNYp0AAp6UDBCHbAaGBIpoASJjKFRUwCUXwxRC3PA
-        +92hDC95wAahayIef+gGGQq0JAO7PAIDs7AAKBuCLAfRKIUSwlW0wyBHQMqBj81QaxEAmwZqY5ADsJaC
-        IIBNA7UxyAFQ6zABNg3UxqMOGHXAqAMGtwNAkrTGoLoAat0oGAWDDTAwAACbvGN1OGNSPQAAAABJRU5E
-        rkJggg==
 </value>
   </data>
   <data name="sairToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

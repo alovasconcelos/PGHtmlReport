@@ -15,13 +15,13 @@ namespace PGHrmlReport.Forms
 {
     public partial class ShowReport : Form
     {
+        public string FilePath { get; set; }
         private Report report;
 
-        public ShowReport(string filePath)
+        public ShowReport()
         {
             InitializeComponent();
             // Carrega o relatório
-            report = XmlReaderHelper.ReadXml(filePath);
 
         }
 
@@ -89,6 +89,7 @@ namespace PGHrmlReport.Forms
 
         private void ShowReport_Shown(object sender, EventArgs e)
         {
+            report = XmlReaderHelper.ReadXml(FilePath);
             LoadData();
         }
     }

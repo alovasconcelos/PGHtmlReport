@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditReport));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditReport));
             label1 = new Label();
             TxtTitle = new TextBox();
-            groupBox1 = new GroupBox();
             NumPort = new NumericUpDown();
             label6 = new Label();
             TxtPassword = new TextBox();
@@ -47,11 +46,6 @@
             TxtQuery = new TextBox();
             PanelBottom = new Panel();
             LabelMensagem = new Label();
-            BtnSalvar = new Button();
-            BtnFechar = new Button();
-            BtnTestar = new Button();
-            BtnLimpar = new Button();
-            BtnCarregar = new Button();
             PanelTop = new Panel();
             PanelPreview = new Panel();
             groupBox3 = new GroupBox();
@@ -59,7 +53,12 @@
             PanelResult = new Panel();
             GroupColunas = new GroupBox();
             ColumnsGrid = new DataGridView();
-            groupBox1.SuspendLayout();
+            panel1 = new Panel();
+            BtnFechar = new Button();
+            BtnTestar = new Button();
+            BtnLimpar = new Button();
+            BtnCarregar = new Button();
+            BtnSalvar = new Button();
             ((System.ComponentModel.ISupportInitialize)NumPort).BeginInit();
             groupBox2.SuspendLayout();
             PanelBottom.SuspendLayout();
@@ -70,6 +69,7 @@
             PanelResult.SuspendLayout();
             GroupColunas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ColumnsGrid).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -91,35 +91,15 @@
             TxtTitle.Location = new Point(9, 45);
             TxtTitle.MaxLength = 80;
             TxtTitle.Name = "TxtTitle";
-            TxtTitle.Size = new Size(763, 34);
+            TxtTitle.Size = new Size(307, 34);
             TxtTitle.TabIndex = 0;
-            // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(NumPort);
-            groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(TxtPassword);
-            groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(TxtUser);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(TxtDatabase);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(TxtServer);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Font = new Font("Segoe UI", 12F);
-            groupBox1.ForeColor = Color.White;
-            groupBox1.Location = new Point(9, 85);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(307, 249);
-            groupBox1.TabIndex = 2;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Conexão com o banco";
             // 
             // NumPort
             // 
             NumPort.BackColor = Color.Black;
+            NumPort.Font = new Font("Segoe UI", 12F);
             NumPort.ForeColor = Color.White;
-            NumPort.Location = new Point(8, 133);
+            NumPort.Location = new Point(610, 45);
             NumPort.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
             NumPort.Name = "NumPort";
             NumPort.Size = new Size(84, 34);
@@ -131,7 +111,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F);
             label6.ForeColor = Color.White;
-            label6.Location = new Point(8, 102);
+            label6.Location = new Point(610, 14);
             label6.Name = "label6";
             label6.Size = new Size(58, 28);
             label6.TabIndex = 8;
@@ -142,7 +122,7 @@
             TxtPassword.BackColor = Color.Black;
             TxtPassword.Font = new Font("Segoe UI", 12F);
             TxtPassword.ForeColor = Color.White;
-            TxtPassword.Location = new Point(10, 201);
+            TxtPassword.Location = new Point(848, 45);
             TxtPassword.MaxLength = 80;
             TxtPassword.Name = "TxtPassword";
             TxtPassword.PasswordChar = '*';
@@ -155,7 +135,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(8, 170);
+            label5.Location = new Point(846, 14);
             label5.Name = "label5";
             label5.Size = new Size(65, 28);
             label5.TabIndex = 7;
@@ -166,7 +146,7 @@
             TxtUser.BackColor = Color.Black;
             TxtUser.Font = new Font("Segoe UI", 12F);
             TxtUser.ForeColor = Color.White;
-            TxtUser.Location = new Point(98, 133);
+            TxtUser.Location = new Point(701, 45);
             TxtUser.MaxLength = 80;
             TxtUser.Name = "TxtUser";
             TxtUser.Size = new Size(141, 34);
@@ -178,7 +158,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(98, 102);
+            label4.Location = new Point(700, 14);
             label4.Name = "label4";
             label4.Size = new Size(79, 28);
             label4.TabIndex = 5;
@@ -189,7 +169,7 @@
             TxtDatabase.BackColor = Color.Black;
             TxtDatabase.Font = new Font("Segoe UI", 12F);
             TxtDatabase.ForeColor = Color.White;
-            TxtDatabase.Location = new Point(153, 65);
+            TxtDatabase.Location = new Point(464, 45);
             TxtDatabase.MaxLength = 80;
             TxtDatabase.Name = "TxtDatabase";
             TxtDatabase.Size = new Size(140, 34);
@@ -201,7 +181,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(153, 30);
+            label3.Location = new Point(464, 14);
             label3.Name = "label3";
             label3.Size = new Size(65, 28);
             label3.TabIndex = 3;
@@ -212,7 +192,7 @@
             TxtServer.BackColor = Color.Black;
             TxtServer.Font = new Font("Segoe UI", 12F);
             TxtServer.ForeColor = Color.White;
-            TxtServer.Location = new Point(8, 65);
+            TxtServer.Location = new Point(322, 45);
             TxtServer.MaxLength = 80;
             TxtServer.Name = "TxtServer";
             TxtServer.Size = new Size(139, 34);
@@ -224,7 +204,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(8, 34);
+            label2.Location = new Point(322, 14);
             label2.Name = "label2";
             label2.Size = new Size(86, 28);
             label2.TabIndex = 1;
@@ -232,12 +212,13 @@
             // 
             // groupBox2
             // 
+            groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBox2.Controls.Add(TxtQuery);
             groupBox2.Font = new Font("Segoe UI", 12F);
             groupBox2.ForeColor = Color.White;
-            groupBox2.Location = new Point(322, 85);
+            groupBox2.Location = new Point(9, 85);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(884, 249);
+            groupBox2.Size = new Size(1004, 249);
             groupBox2.TabIndex = 3;
             groupBox2.TabStop = false;
             groupBox2.Text = "SQL";
@@ -257,145 +238,59 @@
             TxtQuery.Multiline = true;
             TxtQuery.Name = "TxtQuery";
             TxtQuery.ScrollBars = ScrollBars.Both;
-            TxtQuery.Size = new Size(878, 216);
+            TxtQuery.Size = new Size(998, 216);
             TxtQuery.TabIndex = 0;
             TxtQuery.TextChanged += TxtQuery_TextChanged;
             // 
             // PanelBottom
             // 
             PanelBottom.Controls.Add(LabelMensagem);
-            PanelBottom.Controls.Add(BtnSalvar);
-            PanelBottom.Controls.Add(BtnFechar);
             PanelBottom.Dock = DockStyle.Bottom;
-            PanelBottom.Location = new Point(0, 697);
+            PanelBottom.Location = new Point(0, 726);
             PanelBottom.Name = "PanelBottom";
-            PanelBottom.Size = new Size(1226, 105);
+            PanelBottom.Size = new Size(1134, 68);
             PanelBottom.TabIndex = 6;
             // 
             // LabelMensagem
             // 
-            LabelMensagem.Dock = DockStyle.Left;
+            LabelMensagem.Dock = DockStyle.Fill;
             LabelMensagem.Font = new Font("Segoe UI", 12F);
             LabelMensagem.ForeColor = Color.Yellow;
             LabelMensagem.Location = new Point(0, 0);
             LabelMensagem.Name = "LabelMensagem";
-            LabelMensagem.Size = new Size(906, 105);
+            LabelMensagem.Size = new Size(1134, 68);
             LabelMensagem.TabIndex = 3;
             LabelMensagem.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // BtnSalvar
-            // 
-            BtnSalvar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            BtnSalvar.BackColor = Color.Transparent;
-            BtnSalvar.Cursor = Cursors.Hand;
-            BtnSalvar.Enabled = false;
-            BtnSalvar.FlatStyle = FlatStyle.Popup;
-            BtnSalvar.ForeColor = Color.White;
-            BtnSalvar.Image = (Image)resources.GetObject("BtnSalvar.Image");
-            BtnSalvar.Location = new Point(919, 20);
-            BtnSalvar.Name = "BtnSalvar";
-            BtnSalvar.Padding = new Padding(10);
-            BtnSalvar.Size = new Size(137, 65);
-            BtnSalvar.TabIndex = 0;
-            BtnSalvar.Text = "    Salvar";
-            BtnSalvar.TextImageRelation = TextImageRelation.ImageBeforeText;
-            BtnSalvar.UseVisualStyleBackColor = false;
-            BtnSalvar.Click += BtnSalvar_Click;
-            // 
-            // BtnFechar
-            // 
-            BtnFechar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            BtnFechar.BackColor = Color.Transparent;
-            BtnFechar.Cursor = Cursors.Hand;
-            BtnFechar.FlatStyle = FlatStyle.Popup;
-            BtnFechar.ForeColor = Color.White;
-            BtnFechar.Image = (Image)resources.GetObject("BtnFechar.Image");
-            BtnFechar.Location = new Point(1062, 20);
-            BtnFechar.Name = "BtnFechar";
-            BtnFechar.Padding = new Padding(10);
-            BtnFechar.Size = new Size(137, 65);
-            BtnFechar.TabIndex = 2;
-            BtnFechar.Text = "    Fechar";
-            BtnFechar.TextImageRelation = TextImageRelation.ImageBeforeText;
-            BtnFechar.UseVisualStyleBackColor = false;
-            BtnFechar.Click += BtnFechar_Click;
-            // 
-            // BtnTestar
-            // 
-            BtnTestar.BackColor = Color.Transparent;
-            BtnTestar.Cursor = Cursors.Hand;
-            BtnTestar.Enabled = false;
-            BtnTestar.FlatStyle = FlatStyle.Popup;
-            BtnTestar.ForeColor = Color.White;
-            BtnTestar.Image = (Image)resources.GetObject("BtnTestar.Image");
-            BtnTestar.ImageAlign = ContentAlignment.TopCenter;
-            BtnTestar.Location = new Point(1124, 24);
-            BtnTestar.Name = "BtnTestar";
-            BtnTestar.Size = new Size(82, 72);
-            BtnTestar.TabIndex = 1;
-            BtnTestar.Text = "Testar";
-            BtnTestar.TextAlign = ContentAlignment.BottomCenter;
-            BtnTestar.TextImageRelation = TextImageRelation.ImageAboveText;
-            BtnTestar.UseVisualStyleBackColor = false;
-            BtnTestar.Click += BtnTestar_Click;
-            // 
-            // BtnLimpar
-            // 
-            BtnLimpar.BackColor = Color.Transparent;
-            BtnLimpar.Cursor = Cursors.Hand;
-            BtnLimpar.FlatStyle = FlatStyle.Popup;
-            BtnLimpar.ForeColor = Color.White;
-            BtnLimpar.Image = (Image)resources.GetObject("BtnLimpar.Image");
-            BtnLimpar.ImageAlign = ContentAlignment.TopCenter;
-            BtnLimpar.Location = new Point(948, 24);
-            BtnLimpar.Name = "BtnLimpar";
-            BtnLimpar.Size = new Size(82, 72);
-            BtnLimpar.TabIndex = 8;
-            BtnLimpar.Text = "Limpar";
-            BtnLimpar.TextAlign = ContentAlignment.BottomCenter;
-            BtnLimpar.TextImageRelation = TextImageRelation.ImageAboveText;
-            BtnLimpar.UseVisualStyleBackColor = false;
-            BtnLimpar.Click += BtnLimpar_Click;
-            // 
-            // BtnCarregar
-            // 
-            BtnCarregar.BackColor = Color.Transparent;
-            BtnCarregar.Cursor = Cursors.Hand;
-            BtnCarregar.FlatStyle = FlatStyle.Popup;
-            BtnCarregar.ForeColor = Color.White;
-            BtnCarregar.Image = (Image)resources.GetObject("BtnCarregar.Image");
-            BtnCarregar.ImageAlign = ContentAlignment.TopCenter;
-            BtnCarregar.Location = new Point(1036, 24);
-            BtnCarregar.Name = "BtnCarregar";
-            BtnCarregar.Size = new Size(82, 72);
-            BtnCarregar.TabIndex = 9;
-            BtnCarregar.Text = "Carregar";
-            BtnCarregar.TextAlign = ContentAlignment.BottomCenter;
-            BtnCarregar.TextImageRelation = TextImageRelation.ImageAboveText;
-            BtnCarregar.UseVisualStyleBackColor = false;
-            BtnCarregar.Click += BtnCarregar_Click;
-            // 
             // PanelTop
             // 
+            PanelTop.Controls.Add(panel1);
+            PanelTop.Controls.Add(TxtPassword);
+            PanelTop.Controls.Add(label5);
+            PanelTop.Controls.Add(NumPort);
+            PanelTop.Controls.Add(TxtUser);
+            PanelTop.Controls.Add(label6);
+            PanelTop.Controls.Add(label4);
             PanelTop.Controls.Add(TxtTitle);
-            PanelTop.Controls.Add(BtnCarregar);
             PanelTop.Controls.Add(label1);
-            PanelTop.Controls.Add(BtnLimpar);
-            PanelTop.Controls.Add(groupBox1);
-            PanelTop.Controls.Add(BtnTestar);
+            PanelTop.Controls.Add(TxtDatabase);
+            PanelTop.Controls.Add(label3);
             PanelTop.Controls.Add(groupBox2);
-            PanelTop.Location = new Point(12, 12);
+            PanelTop.Controls.Add(TxtServer);
+            PanelTop.Controls.Add(label2);
+            PanelTop.Dock = DockStyle.Top;
+            PanelTop.Location = new Point(0, 0);
             PanelTop.Name = "PanelTop";
-            PanelTop.Size = new Size(1209, 344);
+            PanelTop.Size = new Size(1134, 344);
             PanelTop.TabIndex = 10;
             // 
             // PanelPreview
             // 
             PanelPreview.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             PanelPreview.Controls.Add(groupBox3);
-            PanelPreview.Location = new Point(625, 362);
+            PanelPreview.Location = new Point(547, 350);
             PanelPreview.Name = "PanelPreview";
-            PanelPreview.Size = new Size(593, 358);
+            PanelPreview.Size = new Size(575, 370);
             PanelPreview.TabIndex = 12;
             // 
             // groupBox3
@@ -406,7 +301,7 @@
             groupBox3.ForeColor = Color.White;
             groupBox3.Location = new Point(0, 0);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(593, 358);
+            groupBox3.Size = new Size(575, 370);
             groupBox3.TabIndex = 7;
             groupBox3.TabStop = false;
             groupBox3.Text = "Preview";
@@ -422,17 +317,17 @@
             WebView.Location = new Point(3, 30);
             WebView.Name = "WebView";
             WebView.Padding = new Padding(5);
-            WebView.Size = new Size(587, 325);
+            WebView.Size = new Size(569, 337);
             WebView.TabIndex = 0;
             WebView.ZoomFactor = 1D;
             // 
             // PanelResult
             // 
-            PanelResult.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            PanelResult.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             PanelResult.Controls.Add(GroupColunas);
-            PanelResult.Location = new Point(12, 362);
+            PanelResult.Location = new Point(12, 350);
             PanelResult.Name = "PanelResult";
-            PanelResult.Size = new Size(607, 358);
+            PanelResult.Size = new Size(529, 370);
             PanelResult.TabIndex = 11;
             // 
             // GroupColunas
@@ -443,7 +338,7 @@
             GroupColunas.ForeColor = Color.White;
             GroupColunas.Location = new Point(0, 0);
             GroupColunas.Name = "GroupColunas";
-            GroupColunas.Size = new Size(607, 358);
+            GroupColunas.Size = new Size(529, 370);
             GroupColunas.TabIndex = 7;
             GroupColunas.TabStop = false;
             GroupColunas.Text = "Colunas";
@@ -465,15 +360,124 @@
             ColumnsGrid.Location = new Point(3, 30);
             ColumnsGrid.Name = "ColumnsGrid";
             ColumnsGrid.RowHeadersWidth = 51;
-            ColumnsGrid.Size = new Size(601, 325);
+            ColumnsGrid.Size = new Size(523, 337);
             ColumnsGrid.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            panel1.Controls.Add(BtnSalvar);
+            panel1.Controls.Add(BtnLimpar);
+            panel1.Controls.Add(BtnTestar);
+            panel1.Controls.Add(BtnCarregar);
+            panel1.Controls.Add(BtnFechar);
+            panel1.Location = new Point(1023, 14);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(96, 346);
+            panel1.TabIndex = 13;
+            // 
+            // BtnFechar
+            // 
+            BtnFechar.BackColor = Color.Transparent;
+            BtnFechar.Cursor = Cursors.Hand;
+            BtnFechar.Dock = DockStyle.Top;
+            BtnFechar.FlatStyle = FlatStyle.Popup;
+            BtnFechar.ForeColor = Color.White;
+            BtnFechar.Image = (Image)resources.GetObject("BtnFechar.Image");
+            BtnFechar.ImageAlign = ContentAlignment.TopCenter;
+            BtnFechar.Location = new Point(0, 0);
+            BtnFechar.Name = "BtnFechar";
+            BtnFechar.Size = new Size(96, 65);
+            BtnFechar.TabIndex = 14;
+            BtnFechar.Text = "Fechar";
+            BtnFechar.TextAlign = ContentAlignment.BottomCenter;
+            BtnFechar.TextImageRelation = TextImageRelation.ImageAboveText;
+            BtnFechar.UseVisualStyleBackColor = false;
+            BtnFechar.Click += BtnFechar_Click;
+            // 
+            // BtnTestar
+            // 
+            BtnTestar.BackColor = Color.Transparent;
+            BtnTestar.Cursor = Cursors.Hand;
+            BtnTestar.Dock = DockStyle.Top;
+            BtnTestar.Enabled = false;
+            BtnTestar.FlatStyle = FlatStyle.Popup;
+            BtnTestar.ForeColor = Color.White;
+            BtnTestar.Image = (Image)resources.GetObject("BtnTestar.Image");
+            BtnTestar.ImageAlign = ContentAlignment.TopCenter;
+            BtnTestar.Location = new Point(0, 130);
+            BtnTestar.Name = "BtnTestar";
+            BtnTestar.Size = new Size(96, 65);
+            BtnTestar.TabIndex = 11;
+            BtnTestar.Text = "Testar";
+            BtnTestar.TextAlign = ContentAlignment.BottomCenter;
+            BtnTestar.TextImageRelation = TextImageRelation.ImageAboveText;
+            BtnTestar.UseVisualStyleBackColor = false;
+            BtnTestar.Click += BtnTestar_Click;
+            // 
+            // BtnLimpar
+            // 
+            BtnLimpar.BackColor = Color.Transparent;
+            BtnLimpar.Cursor = Cursors.Hand;
+            BtnLimpar.Dock = DockStyle.Top;
+            BtnLimpar.FlatStyle = FlatStyle.Popup;
+            BtnLimpar.ForeColor = Color.White;
+            BtnLimpar.Image = (Image)resources.GetObject("BtnLimpar.Image");
+            BtnLimpar.ImageAlign = ContentAlignment.TopCenter;
+            BtnLimpar.Location = new Point(0, 195);
+            BtnLimpar.Name = "BtnLimpar";
+            BtnLimpar.Size = new Size(96, 65);
+            BtnLimpar.TabIndex = 12;
+            BtnLimpar.Text = "Limpar";
+            BtnLimpar.TextAlign = ContentAlignment.BottomCenter;
+            BtnLimpar.TextImageRelation = TextImageRelation.ImageAboveText;
+            BtnLimpar.UseVisualStyleBackColor = false;
+            BtnLimpar.Click += BtnLimpar_Click;
+            // 
+            // BtnCarregar
+            // 
+            BtnCarregar.BackColor = Color.Transparent;
+            BtnCarregar.Cursor = Cursors.Hand;
+            BtnCarregar.Dock = DockStyle.Top;
+            BtnCarregar.FlatStyle = FlatStyle.Popup;
+            BtnCarregar.ForeColor = Color.White;
+            BtnCarregar.Image = (Image)resources.GetObject("BtnCarregar.Image");
+            BtnCarregar.ImageAlign = ContentAlignment.TopCenter;
+            BtnCarregar.Location = new Point(0, 65);
+            BtnCarregar.Name = "BtnCarregar";
+            BtnCarregar.Size = new Size(96, 65);
+            BtnCarregar.TabIndex = 13;
+            BtnCarregar.Text = "Carregar";
+            BtnCarregar.TextAlign = ContentAlignment.BottomCenter;
+            BtnCarregar.TextImageRelation = TextImageRelation.ImageAboveText;
+            BtnCarregar.UseVisualStyleBackColor = false;
+            BtnCarregar.Click += BtnCarregar_Click;
+            // 
+            // BtnSalvar
+            // 
+            BtnSalvar.BackColor = Color.Transparent;
+            BtnSalvar.Cursor = Cursors.Hand;
+            BtnSalvar.Dock = DockStyle.Top;
+            BtnSalvar.FlatStyle = FlatStyle.Popup;
+            BtnSalvar.ForeColor = Color.White;
+            BtnSalvar.Image = (Image)resources.GetObject("BtnSalvar.Image");
+            BtnSalvar.ImageAlign = ContentAlignment.TopCenter;
+            BtnSalvar.Location = new Point(0, 260);
+            BtnSalvar.Name = "BtnSalvar";
+            BtnSalvar.Size = new Size(96, 65);
+            BtnSalvar.TabIndex = 15;
+            BtnSalvar.Text = "Salvar";
+            BtnSalvar.TextAlign = ContentAlignment.BottomCenter;
+            BtnSalvar.TextImageRelation = TextImageRelation.ImageAboveText;
+            BtnSalvar.UseVisualStyleBackColor = false;
+            BtnSalvar.Click += BtnSalvar_Click;
             // 
             // EditReport
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(1226, 802);
+            ClientSize = new Size(1134, 794);
             ControlBox = false;
             Controls.Add(PanelPreview);
             Controls.Add(PanelResult);
@@ -487,8 +491,6 @@
             StartPosition = FormStartPosition.CenterParent;
             WindowState = FormWindowState.Maximized;
             KeyDown += NewReport_KeyDown;
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)NumPort).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
@@ -501,6 +503,7 @@
             PanelResult.ResumeLayout(false);
             GroupColunas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)ColumnsGrid).EndInit();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -508,7 +511,6 @@
 
         private Label label1;
         private TextBox TxtTitle;
-        private GroupBox groupBox1;
         private Label label2;
         private TextBox TxtServer;
         private TextBox TxtPassword;
@@ -520,11 +522,6 @@
         private GroupBox groupBox2;
         private TextBox TxtQuery;
         private Panel PanelBottom;
-        private Button BtnSalvar;
-        private Button BtnFechar;
-        private Button BtnTestar;
-        private Button BtnLimpar;
-        private Button BtnCarregar;
         private Label label6;
         private NumericUpDown NumPort;
         private Label LabelMensagem;
@@ -535,5 +532,11 @@
         private Panel PanelResult;
         private GroupBox GroupColunas;
         private DataGridView ColumnsGrid;
+        private Panel panel1;
+        private Button BtnCarregar;
+        private Button BtnFechar;
+        private Button BtnTestar;
+        private Button BtnLimpar;
+        private Button BtnSalvar;
     }
 }

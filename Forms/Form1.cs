@@ -14,6 +14,7 @@ namespace PGHrmlReport
             Arquivos.Font = Font;
             Arquivos.ForeColor = ForeColor;        
             Arquivos.BorderStyle = BorderStyle.None;
+            Arquivos.ItemActivate += Arquivos_ItemActivate;
         }
 
         private void Arquivos_ItemActivate(object? sender, EventArgs e)
@@ -24,7 +25,11 @@ namespace PGHrmlReport
 
                 string filePath = selectedItem.Tag.ToString();
 
-                new ShowReport(filePath).ShowDialog();
+                var f = new ShowReport
+                {
+                    FilePath = filePath
+                };
+                OpenForm(f);
             }
         }
 
@@ -84,6 +89,10 @@ namespace PGHrmlReport
 
         private void OpenForm(Form form)
         {
+            Cursor = Cursors.WaitCursor;
+            // Esconde o menu principal
+            menuStrip1.Visible = false;
+
             // Limpa o PanelMain de qualquer controle existente
             PanelMain.Controls.Clear();
 
@@ -102,6 +111,7 @@ namespace PGHrmlReport
             PanelMain.Controls.Add(form);
 
             // Exibe o formulário
+            Cursor = Cursors.Default;
             form.Show();
         }
 
@@ -115,6 +125,7 @@ namespace PGHrmlReport
             PanelMain.Controls.Clear();
             Arquivos.Dock = DockStyle.Fill;
             PanelMain.Controls.Add(Arquivos);
+            menuStrip1.Visible = true;
         }
 
         private void novoRelatórioToolStripMenuItem_Click(object sender, EventArgs e)
@@ -125,22 +136,25 @@ namespace PGHrmlReport
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
 
-            if (Arquivos.SelectedItems.Count == 0)
+            // Define o filtro para exibir apenas arquivos XML
+            openFileDialog.Filter = "Arquivos XML (*.xml)|*.xml";
+
+            // Define o diretório inicial para a pasta desejada
+            openFileDialog.InitialDirectory = @"C:\PGHtmlReport\xml";
+
+            // Permite a seleção de apenas um arquivo
+            openFileDialog.Multiselect = false;
+
+            // Exibe o diálogo e verifica se o usuário selecionou um arquivo
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show("Selecione o relatório que deseja alterar");
-                return;
+                // Obtém o caminho completo do arquivo selecionado
+                string filePath = openFileDialog.FileName;
+                new EditReport(filePath).ShowDialog();
+                LoadFiles();
             }
-
-            // Get the clicked item
-            ListViewItem selectedItem = Arquivos.SelectedItems[0];
-
-            // Retrieve the file path from the Tag property
-            string filePath = selectedItem.Tag.ToString();
-
-            new EditReport(filePath).ShowDialog();
-            LoadFiles();
-
         }
     }
 }

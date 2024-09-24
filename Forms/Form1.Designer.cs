@@ -66,7 +66,7 @@
             // 
             // relatórioToolStripMenuItem
             // 
-            relatórioToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { novoRelatórioToolStripMenuItem, exportarToolStripMenuItem, toolStripMenuItem2, toolStripMenuItem1, sairToolStripMenuItem });
+            relatórioToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { novoRelatórioToolStripMenuItem, toolStripMenuItem2, exportarToolStripMenuItem, toolStripMenuItem1, sairToolStripMenuItem });
             relatórioToolStripMenuItem.Name = "relatórioToolStripMenuItem";
             relatórioToolStripMenuItem.Size = new Size(84, 24);
             relatórioToolStripMenuItem.Text = "Relatório";
@@ -76,7 +76,7 @@
             novoRelatórioToolStripMenuItem.Image = (Image)resources.GetObject("novoRelatórioToolStripMenuItem.Image");
             novoRelatórioToolStripMenuItem.Name = "novoRelatórioToolStripMenuItem";
             novoRelatórioToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.N;
-            novoRelatórioToolStripMenuItem.Size = new Size(199, 26);
+            novoRelatórioToolStripMenuItem.Size = new Size(224, 26);
             novoRelatórioToolStripMenuItem.Text = "Novo";
             novoRelatórioToolStripMenuItem.Click += novoRelatórioToolStripMenuItem_Click;
             // 
@@ -85,7 +85,7 @@
             exportarToolStripMenuItem.Image = (Image)resources.GetObject("exportarToolStripMenuItem.Image");
             exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
             exportarToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.X;
-            exportarToolStripMenuItem.Size = new Size(199, 26);
+            exportarToolStripMenuItem.Size = new Size(224, 26);
             exportarToolStripMenuItem.Text = "Exportar";
             // 
             // toolStripMenuItem2
@@ -93,21 +93,21 @@
             toolStripMenuItem2.Image = (Image)resources.GetObject("toolStripMenuItem2.Image");
             toolStripMenuItem2.Name = "toolStripMenuItem2";
             toolStripMenuItem2.ShortcutKeys = Keys.Control | Keys.O;
-            toolStripMenuItem2.Size = new Size(199, 26);
+            toolStripMenuItem2.Size = new Size(224, 26);
             toolStripMenuItem2.Text = "Abrir";
             toolStripMenuItem2.Click += toolStripMenuItem2_Click;
             // 
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(196, 6);
+            toolStripMenuItem1.Size = new Size(221, 6);
             // 
             // sairToolStripMenuItem
             // 
             sairToolStripMenuItem.Image = (Image)resources.GetObject("sairToolStripMenuItem.Image");
             sairToolStripMenuItem.Name = "sairToolStripMenuItem";
             sairToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.F4;
-            sairToolStripMenuItem.Size = new Size(199, 26);
+            sairToolStripMenuItem.Size = new Size(224, 26);
             sairToolStripMenuItem.Text = "Sair";
             sairToolStripMenuItem.Click += sairToolStripMenuItem_Click;
             // 
