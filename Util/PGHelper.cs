@@ -1,6 +1,6 @@
 ﻿using Npgsql;
 
-namespace PGHrmlReport.Util
+namespace PGHtmlReport.Util
 {
     public class PGHelper
     {

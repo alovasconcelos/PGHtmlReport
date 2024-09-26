@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace PGHrmlReport.Util;
+namespace PGHtmlReport.Util;
 public static class CriptoHelper
 {
     // Método para criptografar

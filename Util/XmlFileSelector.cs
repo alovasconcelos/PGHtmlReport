@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace PGHrmlReport.Util
+namespace PGHtmlReport.Util
 {
     public class XmlFileSelector
     {

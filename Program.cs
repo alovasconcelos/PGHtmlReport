@@ -1,4 +1,4 @@
-namespace PGHrmlReport
+namespace PGHtmlReport
 {
     internal static class Program
     {

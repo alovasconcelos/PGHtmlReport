@@ -1,5 +1,5 @@
 ﻿using Npgsql;
-using PGHrmlReport.Util;
+using PGHtmlReport.Util;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace PGHrmlReport.Models
+namespace PGHtmlReport.Models
 {
     public class Report
     {

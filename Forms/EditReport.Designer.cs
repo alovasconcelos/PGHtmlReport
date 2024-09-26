@@ -1,4 +1,4 @@
-﻿namespace PGHrmlReport
+﻿namespace PGHtmlReport
 {
     partial class EditReport
     {
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditReport));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             label1 = new Label();
             TxtTitle = new TextBox();
             NumPort = new NumericUpDown();
@@ -47,30 +47,34 @@
             PanelBottom = new Panel();
             LabelMensagem = new Label();
             PanelTop = new Panel();
-            panel1 = new Panel();
-            BtnSalvar = new Button();
-            BtnLimpar = new Button();
-            BtnTestar = new Button();
-            BtnCarregar = new Button();
-            BtnFechar = new Button();
             PanelPreview = new Panel();
             groupBox3 = new GroupBox();
             WebView = new Microsoft.Web.WebView2.WinForms.WebView2();
+            PanelCSS = new Panel();
             PanelResult = new Panel();
             GroupColunas = new GroupBox();
             ColumnsGrid = new DataGridView();
-            PanelCSS = new Panel();
+            menuStrip1 = new MenuStrip();
+            arquivoToolStripMenuItem = new ToolStripMenuItem();
+            BtnSalvar = new ToolStripMenuItem();
+            BtnSalvarComo = new ToolStripMenuItem();
+            toolStripMenuItem1 = new ToolStripSeparator();
+            BtnFechar = new ToolStripMenuItem();
+            queryToolStripMenuItem = new ToolStripMenuItem();
+            BtnTestar = new ToolStripMenuItem();
+            BtnCarregar = new ToolStripMenuItem();
+            BtnLimpar = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)NumPort).BeginInit();
             groupBox2.SuspendLayout();
             PanelBottom.SuspendLayout();
             PanelTop.SuspendLayout();
-            panel1.SuspendLayout();
             PanelPreview.SuspendLayout();
             groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)WebView).BeginInit();
             PanelResult.SuspendLayout();
             GroupColunas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ColumnsGrid).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -219,7 +223,7 @@
             groupBox2.ForeColor = Color.White;
             groupBox2.Location = new Point(9, 85);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(1000, 249);
+            groupBox2.Size = new Size(1110, 211);
             groupBox2.TabIndex = 3;
             groupBox2.TabStop = false;
             groupBox2.Text = "SQL";
@@ -239,7 +243,7 @@
             TxtQuery.Multiline = true;
             TxtQuery.Name = "TxtQuery";
             TxtQuery.ScrollBars = ScrollBars.Both;
-            TxtQuery.Size = new Size(994, 216);
+            TxtQuery.Size = new Size(1104, 178);
             TxtQuery.TabIndex = 0;
             TxtQuery.TextChanged += TxtQuery_TextChanged;
             // 
@@ -247,9 +251,9 @@
             // 
             PanelBottom.Controls.Add(LabelMensagem);
             PanelBottom.Dock = DockStyle.Bottom;
-            PanelBottom.Location = new Point(0, 722);
+            PanelBottom.Location = new Point(0, 718);
             PanelBottom.Name = "PanelBottom";
-            PanelBottom.Size = new Size(1130, 68);
+            PanelBottom.Size = new Size(1126, 68);
             PanelBottom.TabIndex = 6;
             // 
             // LabelMensagem
@@ -259,13 +263,12 @@
             LabelMensagem.ForeColor = Color.Yellow;
             LabelMensagem.Location = new Point(0, 0);
             LabelMensagem.Name = "LabelMensagem";
-            LabelMensagem.Size = new Size(1130, 68);
+            LabelMensagem.Size = new Size(1126, 68);
             LabelMensagem.TabIndex = 3;
             LabelMensagem.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // PanelTop
             // 
-            PanelTop.Controls.Add(panel1);
             PanelTop.Controls.Add(TxtPassword);
             PanelTop.Controls.Add(label5);
             PanelTop.Controls.Add(NumPort);
@@ -280,119 +283,10 @@
             PanelTop.Controls.Add(TxtServer);
             PanelTop.Controls.Add(label2);
             PanelTop.Dock = DockStyle.Top;
-            PanelTop.Location = new Point(0, 0);
+            PanelTop.Location = new Point(0, 28);
             PanelTop.Name = "PanelTop";
-            PanelTop.Size = new Size(1130, 344);
+            PanelTop.Size = new Size(1126, 306);
             PanelTop.TabIndex = 10;
-            // 
-            // panel1
-            // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            panel1.Controls.Add(BtnSalvar);
-            panel1.Controls.Add(BtnLimpar);
-            panel1.Controls.Add(BtnTestar);
-            panel1.Controls.Add(BtnCarregar);
-            panel1.Controls.Add(BtnFechar);
-            panel1.Location = new Point(1019, 14);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(96, 346);
-            panel1.TabIndex = 13;
-            // 
-            // BtnSalvar
-            // 
-            BtnSalvar.BackColor = Color.Transparent;
-            BtnSalvar.Cursor = Cursors.Hand;
-            BtnSalvar.Dock = DockStyle.Top;
-            BtnSalvar.FlatStyle = FlatStyle.Popup;
-            BtnSalvar.ForeColor = Color.White;
-            BtnSalvar.Image = (Image)resources.GetObject("BtnSalvar.Image");
-            BtnSalvar.ImageAlign = ContentAlignment.TopCenter;
-            BtnSalvar.Location = new Point(0, 260);
-            BtnSalvar.Name = "BtnSalvar";
-            BtnSalvar.Size = new Size(96, 65);
-            BtnSalvar.TabIndex = 15;
-            BtnSalvar.Text = "Salvar";
-            BtnSalvar.TextAlign = ContentAlignment.BottomCenter;
-            BtnSalvar.TextImageRelation = TextImageRelation.ImageAboveText;
-            BtnSalvar.UseVisualStyleBackColor = false;
-            BtnSalvar.Click += BtnSalvar_Click;
-            // 
-            // BtnLimpar
-            // 
-            BtnLimpar.BackColor = Color.Transparent;
-            BtnLimpar.Cursor = Cursors.Hand;
-            BtnLimpar.Dock = DockStyle.Top;
-            BtnLimpar.FlatStyle = FlatStyle.Popup;
-            BtnLimpar.ForeColor = Color.White;
-            BtnLimpar.Image = (Image)resources.GetObject("BtnLimpar.Image");
-            BtnLimpar.ImageAlign = ContentAlignment.TopCenter;
-            BtnLimpar.Location = new Point(0, 195);
-            BtnLimpar.Name = "BtnLimpar";
-            BtnLimpar.Size = new Size(96, 65);
-            BtnLimpar.TabIndex = 12;
-            BtnLimpar.Text = "Limpar";
-            BtnLimpar.TextAlign = ContentAlignment.BottomCenter;
-            BtnLimpar.TextImageRelation = TextImageRelation.ImageAboveText;
-            BtnLimpar.UseVisualStyleBackColor = false;
-            BtnLimpar.Click += BtnLimpar_Click;
-            // 
-            // BtnTestar
-            // 
-            BtnTestar.BackColor = Color.Transparent;
-            BtnTestar.Cursor = Cursors.Hand;
-            BtnTestar.Dock = DockStyle.Top;
-            BtnTestar.Enabled = false;
-            BtnTestar.FlatStyle = FlatStyle.Popup;
-            BtnTestar.ForeColor = Color.White;
-            BtnTestar.Image = (Image)resources.GetObject("BtnTestar.Image");
-            BtnTestar.ImageAlign = ContentAlignment.TopCenter;
-            BtnTestar.Location = new Point(0, 130);
-            BtnTestar.Name = "BtnTestar";
-            BtnTestar.Size = new Size(96, 65);
-            BtnTestar.TabIndex = 11;
-            BtnTestar.Text = "Testar";
-            BtnTestar.TextAlign = ContentAlignment.BottomCenter;
-            BtnTestar.TextImageRelation = TextImageRelation.ImageAboveText;
-            BtnTestar.UseVisualStyleBackColor = false;
-            BtnTestar.Click += BtnTestar_Click;
-            // 
-            // BtnCarregar
-            // 
-            BtnCarregar.BackColor = Color.Transparent;
-            BtnCarregar.Cursor = Cursors.Hand;
-            BtnCarregar.Dock = DockStyle.Top;
-            BtnCarregar.FlatStyle = FlatStyle.Popup;
-            BtnCarregar.ForeColor = Color.White;
-            BtnCarregar.Image = (Image)resources.GetObject("BtnCarregar.Image");
-            BtnCarregar.ImageAlign = ContentAlignment.TopCenter;
-            BtnCarregar.Location = new Point(0, 65);
-            BtnCarregar.Name = "BtnCarregar";
-            BtnCarregar.Size = new Size(96, 65);
-            BtnCarregar.TabIndex = 13;
-            BtnCarregar.Text = "Carregar";
-            BtnCarregar.TextAlign = ContentAlignment.BottomCenter;
-            BtnCarregar.TextImageRelation = TextImageRelation.ImageAboveText;
-            BtnCarregar.UseVisualStyleBackColor = false;
-            BtnCarregar.Click += BtnCarregar_Click;
-            // 
-            // BtnFechar
-            // 
-            BtnFechar.BackColor = Color.Transparent;
-            BtnFechar.Cursor = Cursors.Hand;
-            BtnFechar.Dock = DockStyle.Top;
-            BtnFechar.FlatStyle = FlatStyle.Popup;
-            BtnFechar.ForeColor = Color.White;
-            BtnFechar.Image = (Image)resources.GetObject("BtnFechar.Image");
-            BtnFechar.ImageAlign = ContentAlignment.TopCenter;
-            BtnFechar.Location = new Point(0, 0);
-            BtnFechar.Name = "BtnFechar";
-            BtnFechar.Size = new Size(96, 65);
-            BtnFechar.TabIndex = 14;
-            BtnFechar.Text = "Fechar";
-            BtnFechar.TextAlign = ContentAlignment.BottomCenter;
-            BtnFechar.TextImageRelation = TextImageRelation.ImageAboveText;
-            BtnFechar.UseVisualStyleBackColor = false;
-            BtnFechar.Click += BtnFechar_Click;
             // 
             // PanelPreview
             // 
@@ -432,6 +326,14 @@
             WebView.TabIndex = 0;
             WebView.ZoomFactor = 1D;
             // 
+            // PanelCSS
+            // 
+            PanelCSS.Dock = DockStyle.Top;
+            PanelCSS.Location = new Point(3, 30);
+            PanelCSS.Name = "PanelCSS";
+            PanelCSS.Size = new Size(569, 43);
+            PanelCSS.TabIndex = 1;
+            // 
             // PanelResult
             // 
             PanelResult.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -458,14 +360,14 @@
             // 
             ColumnsGrid.BackgroundColor = Color.Black;
             ColumnsGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.Black;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            ColumnsGrid.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.Black;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            ColumnsGrid.DefaultCellStyle = dataGridViewCellStyle3;
             ColumnsGrid.Dock = DockStyle.Fill;
             ColumnsGrid.GridColor = Color.Black;
             ColumnsGrid.Location = new Point(3, 30);
@@ -474,31 +376,107 @@
             ColumnsGrid.Size = new Size(523, 337);
             ColumnsGrid.TabIndex = 1;
             // 
-            // PanelCSS
+            // menuStrip1
             // 
-            PanelCSS.Dock = DockStyle.Top;
-            PanelCSS.Location = new Point(3, 30);
-            PanelCSS.Name = "PanelCSS";
-            PanelCSS.Size = new Size(569, 43);
-            PanelCSS.TabIndex = 1;
+            menuStrip1.ImageScalingSize = new Size(20, 20);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { arquivoToolStripMenuItem, queryToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1126, 28);
+            menuStrip1.TabIndex = 13;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // arquivoToolStripMenuItem
+            // 
+            arquivoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { BtnSalvar, BtnSalvarComo, toolStripMenuItem1, BtnFechar });
+            arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
+            arquivoToolStripMenuItem.Size = new Size(75, 24);
+            arquivoToolStripMenuItem.Text = "Arquivo";
+            // 
+            // BtnSalvar
+            // 
+            BtnSalvar.Image = (Image)resources.GetObject("BtnSalvar.Image");
+            BtnSalvar.Name = "BtnSalvar";
+            BtnSalvar.ShortcutKeys = Keys.Control | Keys.S;
+            BtnSalvar.Size = new Size(264, 26);
+            BtnSalvar.Text = "Salvar";
+            BtnSalvar.Click += BtnSalvar_Click;
+            // 
+            // BtnSalvarComo
+            // 
+            BtnSalvarComo.Image = (Image)resources.GetObject("BtnSalvarComo.Image");
+            BtnSalvarComo.Name = "BtnSalvarComo";
+            BtnSalvarComo.ShortcutKeys = Keys.Control | Keys.Shift | Keys.S;
+            BtnSalvarComo.Size = new Size(264, 26);
+            BtnSalvarComo.Text = "Salvar como";
+            // 
+            // toolStripMenuItem1
+            // 
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new Size(261, 6);
+            // 
+            // BtnFechar
+            // 
+            BtnFechar.Image = (Image)resources.GetObject("BtnFechar.Image");
+            BtnFechar.Name = "BtnFechar";
+            BtnFechar.ShortcutKeys = Keys.Alt | Keys.F4;
+            BtnFechar.Size = new Size(264, 26);
+            BtnFechar.Text = "Fechar";
+            BtnFechar.Click += BtnFechar_Click;
+            // 
+            // queryToolStripMenuItem
+            // 
+            queryToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { BtnTestar, BtnCarregar, BtnLimpar });
+            queryToolStripMenuItem.Name = "queryToolStripMenuItem";
+            queryToolStripMenuItem.Size = new Size(62, 24);
+            queryToolStripMenuItem.Text = "Query";
+            // 
+            // BtnTestar
+            // 
+            BtnTestar.Enabled = false;
+            BtnTestar.Image = (Image)resources.GetObject("BtnTestar.Image");
+            BtnTestar.Name = "BtnTestar";
+            BtnTestar.ShortcutKeys = Keys.F5;
+            BtnTestar.Size = new Size(224, 26);
+            BtnTestar.Text = "Executar";
+            BtnTestar.Click += BtnTestar_Click;
+            // 
+            // BtnCarregar
+            // 
+            BtnCarregar.Image = (Image)resources.GetObject("BtnCarregar.Image");
+            BtnCarregar.Name = "BtnCarregar";
+            BtnCarregar.ShortcutKeys = Keys.Control | Keys.O;
+            BtnCarregar.Size = new Size(224, 26);
+            BtnCarregar.Text = "Carregar";
+            BtnCarregar.Click += BtnCarregar_Click;
+            // 
+            // BtnLimpar
+            // 
+            BtnLimpar.Image = (Image)resources.GetObject("BtnLimpar.Image");
+            BtnLimpar.Name = "BtnLimpar";
+            BtnLimpar.ShortcutKeys = Keys.Control | Keys.L;
+            BtnLimpar.Size = new Size(224, 26);
+            BtnLimpar.Text = "Limpar";
+            BtnLimpar.Click += BtnLimpar_Click;
             // 
             // EditReport
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(1130, 790);
-            ControlBox = false;
+            ClientSize = new Size(1126, 786);
             Controls.Add(PanelPreview);
             Controls.Add(PanelResult);
             Controls.Add(PanelTop);
             Controls.Add(PanelBottom);
-            FormBorderStyle = FormBorderStyle.Fixed3D;
+            Controls.Add(menuStrip1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             KeyPreview = true;
+            MaximizeBox = false;
             Name = "EditReport";
-            ShowIcon = false;
-            ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterParent;
+            Text = "Edição de relatório";
             WindowState = FormWindowState.Maximized;
             KeyDown += NewReport_KeyDown;
             ((System.ComponentModel.ISupportInitialize)NumPort).EndInit();
@@ -507,14 +485,16 @@
             PanelBottom.ResumeLayout(false);
             PanelTop.ResumeLayout(false);
             PanelTop.PerformLayout();
-            panel1.ResumeLayout(false);
             PanelPreview.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)WebView).EndInit();
             PanelResult.ResumeLayout(false);
             GroupColunas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)ColumnsGrid).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -542,12 +522,16 @@
         private Panel PanelResult;
         private GroupBox GroupColunas;
         private DataGridView ColumnsGrid;
-        private Panel panel1;
-        private Button BtnCarregar;
-        private Button BtnFechar;
-        private Button BtnTestar;
-        private Button BtnLimpar;
-        private Button BtnSalvar;
         private Panel PanelCSS;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem arquivoToolStripMenuItem;
+        private ToolStripMenuItem BtnSalvar;
+        private ToolStripSeparator toolStripMenuItem1;
+        private ToolStripMenuItem BtnFechar;
+        private ToolStripMenuItem queryToolStripMenuItem;
+        private ToolStripMenuItem BtnTestar;
+        private ToolStripMenuItem BtnCarregar;
+        private ToolStripMenuItem BtnLimpar;
+        private ToolStripMenuItem BtnSalvarComo;
     }
 }

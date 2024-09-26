@@ -1,7 +1,7 @@
-﻿using PGHrmlReport.Models;
+﻿using PGHtmlReport.Models;
 using System.Xml.Serialization;
 
-namespace PGHrmlReport.Util
+namespace PGHtmlReport.Util
 {
     public class XmlReaderHelper
     {

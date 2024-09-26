@@ -1,4 +1,4 @@
-﻿namespace PGHrmlReport.Forms
+﻿namespace PGHtmlReport.Forms
 {
     partial class ShowReport
     {

@@ -1,6 +1,6 @@
 ﻿using Npgsql;
-using PGHrmlReport.Models;
-using PGHrmlReport.Util;
+using PGHtmlReport.Models;
+using PGHtmlReport.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PGHrmlReport.Forms
+namespace PGHtmlReport.Forms
 {
     public partial class ShowReport : Form
     {

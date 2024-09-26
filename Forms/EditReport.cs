@@ -1,9 +1,9 @@
 ﻿using Npgsql;
-using PGHrmlReport.Models;
-using PGHrmlReport.Util;
+using PGHtmlReport.Models;
+using PGHtmlReport.Util;
 using System.Data;
 
-namespace PGHrmlReport
+namespace PGHtmlReport
 {
     public partial class EditReport : Form
     {
@@ -12,7 +12,6 @@ namespace PGHrmlReport
         private CssFileComboBox cssFileComboBox = new CssFileComboBox();
         public EditReport(string filePath = null)
         {
-            Load += this.EditReport_Load;
 
             InitializeComponent();
 
@@ -34,11 +33,7 @@ namespace PGHrmlReport
 
         private void CssFileComboBox_SelectionChanged(object? sender, EventArgs e)
         {
-            PreviewAsync();            
-        }
-
-        private void EditReport_Load(object? sender, EventArgs e)
-        {
+            PreviewAsync();
         }
 
         private void LoadReportDefinition()
@@ -182,6 +177,7 @@ namespace PGHrmlReport
         {
             report.Title = Title();
             report.Query = Query();
+            report.CSS = cssFileComboBox.CaminhoCompletoArquivoSelecionado;
             report.Connection = new Connection
             {
                 Server = Server(),
@@ -321,7 +317,6 @@ namespace PGHrmlReport
             }
         }
 
-
         private void RunQuery()
         {
             if (!ValidateConnection())
@@ -432,6 +427,11 @@ namespace PGHrmlReport
         private void BtnLimpar_Click(object sender, EventArgs e)
         {
             TxtQuery.Clear();
+        }
+        
+        private void carregarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

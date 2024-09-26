@@ -1,4 +1,4 @@
-﻿namespace PGHrmlReport
+﻿namespace PGHtmlReport
 {
     partial class Form1
     {
@@ -34,7 +34,6 @@
             relatórioToolStripMenuItem = new ToolStripMenuItem();
             novoRelatórioToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem2 = new ToolStripMenuItem();
-            exportarToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem1 = new ToolStripSeparator();
             sairToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
@@ -62,7 +61,7 @@
             // 
             // relatórioToolStripMenuItem
             // 
-            relatórioToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { novoRelatórioToolStripMenuItem, toolStripMenuItem2, exportarToolStripMenuItem, toolStripMenuItem1, sairToolStripMenuItem });
+            relatórioToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { novoRelatórioToolStripMenuItem, toolStripMenuItem2, toolStripMenuItem1, sairToolStripMenuItem });
             relatórioToolStripMenuItem.Name = "relatórioToolStripMenuItem";
             relatórioToolStripMenuItem.Size = new Size(84, 24);
             relatórioToolStripMenuItem.Text = "Relatório";
@@ -84,14 +83,6 @@
             toolStripMenuItem2.Size = new Size(224, 26);
             toolStripMenuItem2.Text = "Abrir";
             toolStripMenuItem2.Click += toolStripMenuItem2_Click;
-            // 
-            // exportarToolStripMenuItem
-            // 
-            exportarToolStripMenuItem.Image = (Image)resources.GetObject("exportarToolStripMenuItem.Image");
-            exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
-            exportarToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.X;
-            exportarToolStripMenuItem.Size = new Size(224, 26);
-            exportarToolStripMenuItem.Text = "Exportar";
             // 
             // toolStripMenuItem1
             // 
@@ -138,7 +129,6 @@
         private ToolStripMenuItem relatórioToolStripMenuItem;
         private ToolStripMenuItem novoRelatórioToolStripMenuItem;
         private ToolStripSeparator toolStripMenuItem1;
-        private ToolStripMenuItem exportarToolStripMenuItem;
         private ToolStripMenuItem toolStripMenuItem2;
         private ToolStripMenuItem sairToolStripMenuItem;
     }

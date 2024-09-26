@@ -1,7 +1,7 @@
-using PGHrmlReport.Forms;
-using PGHrmlReport.Util;
+using PGHtmlReport.Forms;
+using PGHtmlReport.Util;
 
-namespace PGHrmlReport
+namespace PGHtmlReport
 {
     public partial class Form1 : Form
     {

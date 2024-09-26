@@ -1,4 +1,4 @@
-﻿namespace PGHrmlReport.Models
+﻿namespace PGHtmlReport.Models
 {
     public class Connection
     {
