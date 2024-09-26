@@ -9,6 +9,7 @@ namespace PGHrmlReport
     {
         private Report originalReport = new Report();
         private Report report = new Report();
+        private CssFileComboBox cssFileComboBox = new CssFileComboBox();
         public EditReport(string filePath = null)
         {
             Load += this.EditReport_Load;
@@ -24,6 +25,16 @@ namespace PGHrmlReport
                 TxtQuery.ReadOnly = true;
                 RunQuery();
             }
+
+            cssFileComboBox.Dock = DockStyle.Fill;
+            cssFileComboBox.SelectionChanged += CssFileComboBox_SelectionChanged;
+
+            PanelCSS.Controls.Add(cssFileComboBox);
+        }
+
+        private void CssFileComboBox_SelectionChanged(object? sender, EventArgs e)
+        {
+            PreviewAsync();            
         }
 
         private void EditReport_Load(object? sender, EventArgs e)
@@ -367,6 +378,7 @@ namespace PGHrmlReport
         {
             if (report.Query != null)
             {
+                report.CSS = cssFileComboBox.CaminhoCompletoArquivoSelecionado;
                 var htmlReport = new HtmlReport(report);
                 var html = htmlReport.Render();
                 try

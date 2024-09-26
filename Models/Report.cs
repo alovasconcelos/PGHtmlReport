@@ -16,6 +16,8 @@ namespace PGHrmlReport.Models
         public string Title { get; set; }
         public Connection Connection { get; set; }
 
+        public string CSS { get; set; } = "default";
+
         [XmlIgnore]
         public string Query { get; set; }
 

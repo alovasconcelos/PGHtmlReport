@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditReport));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             label1 = new Label();
             TxtTitle = new TextBox();
             NumPort = new NumericUpDown();
@@ -47,29 +47,30 @@
             PanelBottom = new Panel();
             LabelMensagem = new Label();
             PanelTop = new Panel();
+            panel1 = new Panel();
+            BtnSalvar = new Button();
+            BtnLimpar = new Button();
+            BtnTestar = new Button();
+            BtnCarregar = new Button();
+            BtnFechar = new Button();
             PanelPreview = new Panel();
             groupBox3 = new GroupBox();
             WebView = new Microsoft.Web.WebView2.WinForms.WebView2();
             PanelResult = new Panel();
             GroupColunas = new GroupBox();
             ColumnsGrid = new DataGridView();
-            panel1 = new Panel();
-            BtnFechar = new Button();
-            BtnTestar = new Button();
-            BtnLimpar = new Button();
-            BtnCarregar = new Button();
-            BtnSalvar = new Button();
+            PanelCSS = new Panel();
             ((System.ComponentModel.ISupportInitialize)NumPort).BeginInit();
             groupBox2.SuspendLayout();
             PanelBottom.SuspendLayout();
             PanelTop.SuspendLayout();
+            panel1.SuspendLayout();
             PanelPreview.SuspendLayout();
             groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)WebView).BeginInit();
             PanelResult.SuspendLayout();
             GroupColunas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ColumnsGrid).BeginInit();
-            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -218,7 +219,7 @@
             groupBox2.ForeColor = Color.White;
             groupBox2.Location = new Point(9, 85);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(1004, 249);
+            groupBox2.Size = new Size(1000, 249);
             groupBox2.TabIndex = 3;
             groupBox2.TabStop = false;
             groupBox2.Text = "SQL";
@@ -238,7 +239,7 @@
             TxtQuery.Multiline = true;
             TxtQuery.Name = "TxtQuery";
             TxtQuery.ScrollBars = ScrollBars.Both;
-            TxtQuery.Size = new Size(998, 216);
+            TxtQuery.Size = new Size(994, 216);
             TxtQuery.TabIndex = 0;
             TxtQuery.TextChanged += TxtQuery_TextChanged;
             // 
@@ -246,9 +247,9 @@
             // 
             PanelBottom.Controls.Add(LabelMensagem);
             PanelBottom.Dock = DockStyle.Bottom;
-            PanelBottom.Location = new Point(0, 726);
+            PanelBottom.Location = new Point(0, 722);
             PanelBottom.Name = "PanelBottom";
-            PanelBottom.Size = new Size(1134, 68);
+            PanelBottom.Size = new Size(1130, 68);
             PanelBottom.TabIndex = 6;
             // 
             // LabelMensagem
@@ -258,7 +259,7 @@
             LabelMensagem.ForeColor = Color.Yellow;
             LabelMensagem.Location = new Point(0, 0);
             LabelMensagem.Name = "LabelMensagem";
-            LabelMensagem.Size = new Size(1134, 68);
+            LabelMensagem.Size = new Size(1130, 68);
             LabelMensagem.TabIndex = 3;
             LabelMensagem.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -281,8 +282,117 @@
             PanelTop.Dock = DockStyle.Top;
             PanelTop.Location = new Point(0, 0);
             PanelTop.Name = "PanelTop";
-            PanelTop.Size = new Size(1134, 344);
+            PanelTop.Size = new Size(1130, 344);
             PanelTop.TabIndex = 10;
+            // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            panel1.Controls.Add(BtnSalvar);
+            panel1.Controls.Add(BtnLimpar);
+            panel1.Controls.Add(BtnTestar);
+            panel1.Controls.Add(BtnCarregar);
+            panel1.Controls.Add(BtnFechar);
+            panel1.Location = new Point(1019, 14);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(96, 346);
+            panel1.TabIndex = 13;
+            // 
+            // BtnSalvar
+            // 
+            BtnSalvar.BackColor = Color.Transparent;
+            BtnSalvar.Cursor = Cursors.Hand;
+            BtnSalvar.Dock = DockStyle.Top;
+            BtnSalvar.FlatStyle = FlatStyle.Popup;
+            BtnSalvar.ForeColor = Color.White;
+            BtnSalvar.Image = (Image)resources.GetObject("BtnSalvar.Image");
+            BtnSalvar.ImageAlign = ContentAlignment.TopCenter;
+            BtnSalvar.Location = new Point(0, 260);
+            BtnSalvar.Name = "BtnSalvar";
+            BtnSalvar.Size = new Size(96, 65);
+            BtnSalvar.TabIndex = 15;
+            BtnSalvar.Text = "Salvar";
+            BtnSalvar.TextAlign = ContentAlignment.BottomCenter;
+            BtnSalvar.TextImageRelation = TextImageRelation.ImageAboveText;
+            BtnSalvar.UseVisualStyleBackColor = false;
+            BtnSalvar.Click += BtnSalvar_Click;
+            // 
+            // BtnLimpar
+            // 
+            BtnLimpar.BackColor = Color.Transparent;
+            BtnLimpar.Cursor = Cursors.Hand;
+            BtnLimpar.Dock = DockStyle.Top;
+            BtnLimpar.FlatStyle = FlatStyle.Popup;
+            BtnLimpar.ForeColor = Color.White;
+            BtnLimpar.Image = (Image)resources.GetObject("BtnLimpar.Image");
+            BtnLimpar.ImageAlign = ContentAlignment.TopCenter;
+            BtnLimpar.Location = new Point(0, 195);
+            BtnLimpar.Name = "BtnLimpar";
+            BtnLimpar.Size = new Size(96, 65);
+            BtnLimpar.TabIndex = 12;
+            BtnLimpar.Text = "Limpar";
+            BtnLimpar.TextAlign = ContentAlignment.BottomCenter;
+            BtnLimpar.TextImageRelation = TextImageRelation.ImageAboveText;
+            BtnLimpar.UseVisualStyleBackColor = false;
+            BtnLimpar.Click += BtnLimpar_Click;
+            // 
+            // BtnTestar
+            // 
+            BtnTestar.BackColor = Color.Transparent;
+            BtnTestar.Cursor = Cursors.Hand;
+            BtnTestar.Dock = DockStyle.Top;
+            BtnTestar.Enabled = false;
+            BtnTestar.FlatStyle = FlatStyle.Popup;
+            BtnTestar.ForeColor = Color.White;
+            BtnTestar.Image = (Image)resources.GetObject("BtnTestar.Image");
+            BtnTestar.ImageAlign = ContentAlignment.TopCenter;
+            BtnTestar.Location = new Point(0, 130);
+            BtnTestar.Name = "BtnTestar";
+            BtnTestar.Size = new Size(96, 65);
+            BtnTestar.TabIndex = 11;
+            BtnTestar.Text = "Testar";
+            BtnTestar.TextAlign = ContentAlignment.BottomCenter;
+            BtnTestar.TextImageRelation = TextImageRelation.ImageAboveText;
+            BtnTestar.UseVisualStyleBackColor = false;
+            BtnTestar.Click += BtnTestar_Click;
+            // 
+            // BtnCarregar
+            // 
+            BtnCarregar.BackColor = Color.Transparent;
+            BtnCarregar.Cursor = Cursors.Hand;
+            BtnCarregar.Dock = DockStyle.Top;
+            BtnCarregar.FlatStyle = FlatStyle.Popup;
+            BtnCarregar.ForeColor = Color.White;
+            BtnCarregar.Image = (Image)resources.GetObject("BtnCarregar.Image");
+            BtnCarregar.ImageAlign = ContentAlignment.TopCenter;
+            BtnCarregar.Location = new Point(0, 65);
+            BtnCarregar.Name = "BtnCarregar";
+            BtnCarregar.Size = new Size(96, 65);
+            BtnCarregar.TabIndex = 13;
+            BtnCarregar.Text = "Carregar";
+            BtnCarregar.TextAlign = ContentAlignment.BottomCenter;
+            BtnCarregar.TextImageRelation = TextImageRelation.ImageAboveText;
+            BtnCarregar.UseVisualStyleBackColor = false;
+            BtnCarregar.Click += BtnCarregar_Click;
+            // 
+            // BtnFechar
+            // 
+            BtnFechar.BackColor = Color.Transparent;
+            BtnFechar.Cursor = Cursors.Hand;
+            BtnFechar.Dock = DockStyle.Top;
+            BtnFechar.FlatStyle = FlatStyle.Popup;
+            BtnFechar.ForeColor = Color.White;
+            BtnFechar.Image = (Image)resources.GetObject("BtnFechar.Image");
+            BtnFechar.ImageAlign = ContentAlignment.TopCenter;
+            BtnFechar.Location = new Point(0, 0);
+            BtnFechar.Name = "BtnFechar";
+            BtnFechar.Size = new Size(96, 65);
+            BtnFechar.TabIndex = 14;
+            BtnFechar.Text = "Fechar";
+            BtnFechar.TextAlign = ContentAlignment.BottomCenter;
+            BtnFechar.TextImageRelation = TextImageRelation.ImageAboveText;
+            BtnFechar.UseVisualStyleBackColor = false;
+            BtnFechar.Click += BtnFechar_Click;
             // 
             // PanelPreview
             // 
@@ -296,6 +406,7 @@
             // groupBox3
             // 
             groupBox3.Controls.Add(WebView);
+            groupBox3.Controls.Add(PanelCSS);
             groupBox3.Dock = DockStyle.Fill;
             groupBox3.Font = new Font("Segoe UI", 12F);
             groupBox3.ForeColor = Color.White;
@@ -314,10 +425,10 @@
             WebView.DefaultBackgroundColor = Color.White;
             WebView.Dock = DockStyle.Fill;
             WebView.ForeColor = Color.Black;
-            WebView.Location = new Point(3, 30);
+            WebView.Location = new Point(3, 73);
             WebView.Name = "WebView";
             WebView.Padding = new Padding(5);
-            WebView.Size = new Size(569, 337);
+            WebView.Size = new Size(569, 294);
             WebView.TabIndex = 0;
             WebView.ZoomFactor = 1D;
             // 
@@ -363,121 +474,20 @@
             ColumnsGrid.Size = new Size(523, 337);
             ColumnsGrid.TabIndex = 1;
             // 
-            // panel1
+            // PanelCSS
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            panel1.Controls.Add(BtnSalvar);
-            panel1.Controls.Add(BtnLimpar);
-            panel1.Controls.Add(BtnTestar);
-            panel1.Controls.Add(BtnCarregar);
-            panel1.Controls.Add(BtnFechar);
-            panel1.Location = new Point(1023, 14);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(96, 346);
-            panel1.TabIndex = 13;
-            // 
-            // BtnFechar
-            // 
-            BtnFechar.BackColor = Color.Transparent;
-            BtnFechar.Cursor = Cursors.Hand;
-            BtnFechar.Dock = DockStyle.Top;
-            BtnFechar.FlatStyle = FlatStyle.Popup;
-            BtnFechar.ForeColor = Color.White;
-            BtnFechar.Image = (Image)resources.GetObject("BtnFechar.Image");
-            BtnFechar.ImageAlign = ContentAlignment.TopCenter;
-            BtnFechar.Location = new Point(0, 0);
-            BtnFechar.Name = "BtnFechar";
-            BtnFechar.Size = new Size(96, 65);
-            BtnFechar.TabIndex = 14;
-            BtnFechar.Text = "Fechar";
-            BtnFechar.TextAlign = ContentAlignment.BottomCenter;
-            BtnFechar.TextImageRelation = TextImageRelation.ImageAboveText;
-            BtnFechar.UseVisualStyleBackColor = false;
-            BtnFechar.Click += BtnFechar_Click;
-            // 
-            // BtnTestar
-            // 
-            BtnTestar.BackColor = Color.Transparent;
-            BtnTestar.Cursor = Cursors.Hand;
-            BtnTestar.Dock = DockStyle.Top;
-            BtnTestar.Enabled = false;
-            BtnTestar.FlatStyle = FlatStyle.Popup;
-            BtnTestar.ForeColor = Color.White;
-            BtnTestar.Image = (Image)resources.GetObject("BtnTestar.Image");
-            BtnTestar.ImageAlign = ContentAlignment.TopCenter;
-            BtnTestar.Location = new Point(0, 130);
-            BtnTestar.Name = "BtnTestar";
-            BtnTestar.Size = new Size(96, 65);
-            BtnTestar.TabIndex = 11;
-            BtnTestar.Text = "Testar";
-            BtnTestar.TextAlign = ContentAlignment.BottomCenter;
-            BtnTestar.TextImageRelation = TextImageRelation.ImageAboveText;
-            BtnTestar.UseVisualStyleBackColor = false;
-            BtnTestar.Click += BtnTestar_Click;
-            // 
-            // BtnLimpar
-            // 
-            BtnLimpar.BackColor = Color.Transparent;
-            BtnLimpar.Cursor = Cursors.Hand;
-            BtnLimpar.Dock = DockStyle.Top;
-            BtnLimpar.FlatStyle = FlatStyle.Popup;
-            BtnLimpar.ForeColor = Color.White;
-            BtnLimpar.Image = (Image)resources.GetObject("BtnLimpar.Image");
-            BtnLimpar.ImageAlign = ContentAlignment.TopCenter;
-            BtnLimpar.Location = new Point(0, 195);
-            BtnLimpar.Name = "BtnLimpar";
-            BtnLimpar.Size = new Size(96, 65);
-            BtnLimpar.TabIndex = 12;
-            BtnLimpar.Text = "Limpar";
-            BtnLimpar.TextAlign = ContentAlignment.BottomCenter;
-            BtnLimpar.TextImageRelation = TextImageRelation.ImageAboveText;
-            BtnLimpar.UseVisualStyleBackColor = false;
-            BtnLimpar.Click += BtnLimpar_Click;
-            // 
-            // BtnCarregar
-            // 
-            BtnCarregar.BackColor = Color.Transparent;
-            BtnCarregar.Cursor = Cursors.Hand;
-            BtnCarregar.Dock = DockStyle.Top;
-            BtnCarregar.FlatStyle = FlatStyle.Popup;
-            BtnCarregar.ForeColor = Color.White;
-            BtnCarregar.Image = (Image)resources.GetObject("BtnCarregar.Image");
-            BtnCarregar.ImageAlign = ContentAlignment.TopCenter;
-            BtnCarregar.Location = new Point(0, 65);
-            BtnCarregar.Name = "BtnCarregar";
-            BtnCarregar.Size = new Size(96, 65);
-            BtnCarregar.TabIndex = 13;
-            BtnCarregar.Text = "Carregar";
-            BtnCarregar.TextAlign = ContentAlignment.BottomCenter;
-            BtnCarregar.TextImageRelation = TextImageRelation.ImageAboveText;
-            BtnCarregar.UseVisualStyleBackColor = false;
-            BtnCarregar.Click += BtnCarregar_Click;
-            // 
-            // BtnSalvar
-            // 
-            BtnSalvar.BackColor = Color.Transparent;
-            BtnSalvar.Cursor = Cursors.Hand;
-            BtnSalvar.Dock = DockStyle.Top;
-            BtnSalvar.FlatStyle = FlatStyle.Popup;
-            BtnSalvar.ForeColor = Color.White;
-            BtnSalvar.Image = (Image)resources.GetObject("BtnSalvar.Image");
-            BtnSalvar.ImageAlign = ContentAlignment.TopCenter;
-            BtnSalvar.Location = new Point(0, 260);
-            BtnSalvar.Name = "BtnSalvar";
-            BtnSalvar.Size = new Size(96, 65);
-            BtnSalvar.TabIndex = 15;
-            BtnSalvar.Text = "Salvar";
-            BtnSalvar.TextAlign = ContentAlignment.BottomCenter;
-            BtnSalvar.TextImageRelation = TextImageRelation.ImageAboveText;
-            BtnSalvar.UseVisualStyleBackColor = false;
-            BtnSalvar.Click += BtnSalvar_Click;
+            PanelCSS.Dock = DockStyle.Top;
+            PanelCSS.Location = new Point(3, 30);
+            PanelCSS.Name = "PanelCSS";
+            PanelCSS.Size = new Size(569, 43);
+            PanelCSS.TabIndex = 1;
             // 
             // EditReport
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(1134, 794);
+            ClientSize = new Size(1130, 790);
             ControlBox = false;
             Controls.Add(PanelPreview);
             Controls.Add(PanelResult);
@@ -497,13 +507,13 @@
             PanelBottom.ResumeLayout(false);
             PanelTop.ResumeLayout(false);
             PanelTop.PerformLayout();
+            panel1.ResumeLayout(false);
             PanelPreview.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)WebView).EndInit();
             PanelResult.ResumeLayout(false);
             GroupColunas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)ColumnsGrid).EndInit();
-            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -538,5 +548,6 @@
         private Button BtnTestar;
         private Button BtnLimpar;
         private Button BtnSalvar;
+        private Panel PanelCSS;
     }
 }

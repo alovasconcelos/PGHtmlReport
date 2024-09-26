@@ -15,6 +15,7 @@ namespace PGHrmlReport
             Arquivos.ForeColor = ForeColor;        
             Arquivos.BorderStyle = BorderStyle.None;
             Arquivos.ItemActivate += Arquivos_ItemActivate;
+            Arquivos.Cursor = Cursors.Hand;
         }
 
         private void Arquivos_ItemActivate(object? sender, EventArgs e)
