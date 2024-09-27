@@ -22,6 +22,7 @@ namespace PGHtmlReport
                 originalReport = report;
                 LoadReportDefinition();
                 TxtQuery.ReadOnly = true;
+                TxtTitle.ReadOnly = true;
                 RunQuery();
             }
 
@@ -225,17 +226,17 @@ namespace PGHtmlReport
             }
         }
 
-        private void Aguarde(bool aguardando)
+        private void Wait(bool waiting)
         {
             Cursor = Cursors.WaitCursor;
-            GroupColunas.Visible = !aguardando;
+            GroupColunas.Visible = !waiting;
             Cursor = Cursors.Default;
             Refresh();
         }
 
-        private void Mensagem(string mensagem)
+        private void Message(string message)
         {
-            LabelMensagem.Text = mensagem;
+            LabelMensagem.Text = message;
         }
 
         private void PopulateColumnsGrid()
@@ -323,8 +324,8 @@ namespace PGHtmlReport
             {
                 return;
             }
-            Mensagem("Aguarde um momento, por favor...");
-            Aguarde(true);
+            Message("Aguarde um momento, por favor...");
+            Wait(true);
             var pg = new PGHelper(Server(), Database(), Port(), User(), Password());
             var conn = pg.Connection();
             if (conn.State == System.Data.ConnectionState.Closed)
@@ -349,7 +350,7 @@ namespace PGHtmlReport
                 }
                 var qtLinhas = dataTable.Rows.Count;
                 report.Data = dataTable;
-                Mensagem(qtLinhas > 0 ? $"{qtLinhas} linha(s) retornada(s)" : "Nenhuma linha retornada");
+                Message(qtLinhas > 0 ? $"{qtLinhas} linha(s) retornada(s)" : "Nenhuma linha retornada");
                 if (!TxtQuery.ReadOnly && (report.Query == null || report.Query != Query()))
                 {
                     PopulateColumnsGrid();
@@ -360,11 +361,11 @@ namespace PGHtmlReport
             }
             catch (Exception ex)
             {
-                Mensagem(ex.Message);
+                Message(ex.Message);
             }
             finally
             {
-                Aguarde(false);
+                Wait(false);
                 conn.Close();
             }
         }
