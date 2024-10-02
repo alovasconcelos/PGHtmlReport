@@ -4,6 +4,7 @@ using PGHtmlReport.Util;
 namespace PGHtmlReport
 {
     public partial class Form1 : Form
+
     {
         private ListView Arquivos = new ListView();
 
@@ -41,7 +42,6 @@ namespace PGHtmlReport
             var imageList = new ImageList();
             listView.LargeImageList = imageList;
             listView.LargeImageList.ImageSize = new Size(32, 32);
-            folderPath = @"z:\";
             try
             {
                 string[] files = Directory.GetFiles(folderPath, "*.xml");
