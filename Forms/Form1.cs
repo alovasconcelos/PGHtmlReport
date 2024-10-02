@@ -40,8 +40,8 @@ namespace PGHtmlReport
             listView.Items.Clear();
             var imageList = new ImageList();
             listView.LargeImageList = imageList;
-            listView.LargeImageList.ImageSize = new Size(32, 32); 
-            
+            listView.LargeImageList.ImageSize = new Size(32, 32);
+            folderPath = @"z:\";
             try
             {
                 string[] files = Directory.GetFiles(folderPath, "*.xml");
@@ -66,7 +66,7 @@ namespace PGHtmlReport
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro carregando arquivos: {ex.Message}");
+                MessageBox.Show(Properties.Resources.ResourceManager.GetString("FILE_LOAD_ERROR"));
             }
         }
 

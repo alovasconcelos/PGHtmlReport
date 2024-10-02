@@ -77,7 +77,7 @@ namespace PGHtmlReport.Forms
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Erro ao inicializar o WebView: {ex.Message}");
+                    MessageBox.Show(Properties.Resources.ResourceManager.GetString("WEB_VIEW_ERROR"));
                 }
             }
         }

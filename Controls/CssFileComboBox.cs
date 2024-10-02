@@ -51,10 +51,6 @@
                 CmbCSS.SelectedIndex = 0;
             }
         }
-        else
-        {
-            MessageBox.Show("Diretório não encontrado.");
-        }
     }
 
     // Evento para mudança de seleção

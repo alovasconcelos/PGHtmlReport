@@ -31,12 +31,12 @@ namespace PGHtmlReport.Util
                         }
                         else
                         {
-                            MessageBox.Show("O arquivo selecionado não é válido", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(Properties.Resources.ResourceManager.GetString("INVALID_XML_FILE"), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Erro ao ler o arquivo XML: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"{Properties.Resources.ResourceManager.GetString("XML_FILE_READ_ERROR")}: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
